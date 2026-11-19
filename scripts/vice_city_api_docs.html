@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>vice-city.app API · free GTA 6 API, JSON data for developers</title>
+<meta name="description" content="A free GTA 6 API: characters, locations, vehicles, weapons and the map of Leonida as JSON, in English and French. OpenAPI 3.1, free key.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"><link rel="canonical" href="https://vice-city.app/developers"><link rel="alternate" hreflang="en" href="https://vice-city.app/developers"><link rel="alternate" hreflang="fr" href="https://vice-city.app/fr/developpeurs"><link rel="alternate" hreflang="x-default" href="https://vice-city.app/developers">
+<meta property="og:type" content="website"><meta property="og:site_name" content="vice-city.app"><meta property="og:locale" content="en_US">
+<meta property="og:title" content="vice-city.app API · free GTA 6 API, JSON data for developers"><meta property="og:description" content="A free GTA 6 API: characters, locations, vehicles, weapons and the map of Leonida as JSON, in English and French. OpenAPI 3.1, free key."><meta property="og:url" content="https://vice-city.app/developers">
+<meta property="og:image" content="https://vice-city.app/og/developers.jpg?v=1795102706"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="vice-city.app API · free GTA 6 API, JSON data for developers"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@ViceCityApp"><meta name="twitter:image" content="https://vice-city.app/og/developers.jpg?v=1795102706"><meta name="twitter:image:alt" content="vice-city.app API · free GTA 6 API, JSON data for developers"><meta name="twitter:title" content="vice-city.app API · free GTA 6 API, JSON data for developers"><meta name="twitter:description" content="A free GTA 6 API: characters, locations, vehicles, weapons and the map of Leonida as JSON, in English and French. OpenAPI 3.1, free key.">
+<meta name="theme-color" content="#0c0d1b"><meta name="color-scheme" content="dark light">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="alternate" type="text/markdown" href="https://vice-city.app/md/developers.md">
+<meta name="google-adsense-account" content="ca-pub-2046602277842498">
+<meta name="google-site-verification" content="UYSieTEBvulPJ7aiB08SfIQ5eC5abTAAD6Oh3N0Q6M8">
+<link rel="preload" href="/assets/fonts/big-shoulders-display-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/assets/fonts/jost-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css?v=1795102706">
+<link rel="stylesheet" href="/assets/lqip.css?v=5864c1e4" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="/assets/docs.css?v=1795102706">
+<script>document.documentElement.className='js'</script>
+<script>(function(){var d=document.documentElement,p='system',m=matchMedia('(prefers-color-scheme: light)');try{p=localStorage.getItem('vc-theme')||'system'}catch(e){}function a(){var l=p==='light'||(p==='system'&&m.matches);d.classList.toggle('vc-light',l);d.setAttribute('data-vc-pref',p);var t=document.querySelector('meta[name=theme-color]');if(t)t.content=l?'#fff7ee':'#0c0d1b'}a();if(m.addEventListener)m.addEventListener('change',a);addEventListener('storage',function(e){if(e.key==='vc-theme'){p=e.newValue||'system';a()}});window.vcTheme=function(v){p=v;try{localStorage.setItem('vc-theme',v)}catch(e){}a()}})()</script>
+<script>(function(){var D=document.documentElement,S=sessionStorage;
+var off=0;try{off=localStorage.getItem('vc-motion')==='off'}catch(_){}if(off)D.classList.add('vc-still');
+if(document.prerendering){D.classList.add('vc-pre');document.addEventListener('prerenderingchange',function(){D.classList.remove('vc-pre')},{once:true})}
+if(!('onpagereveal' in window)||!window.navigation)return;var K='vc-vt',N='vc-media';
+function med(p){var a=[].find.call(document.querySelectorAll('a[href]'),function(x){return x.pathname===p&&x.closest('.c,.cc,.cc2,.tile')});var c=a&&a.closest('.c,.cc,.cc2,.tile');return c&&c.querySelector('img')}
+function dh(){return document.querySelector('.dhero img')}
+function hero(){return dh()||document.querySelector('.collage .hc0')}
+function tag(el,vt){if(!el)return;el.style.viewTransitionName=N;vt.finished.finally(function(){el.style.viewTransitionName=''})}
+function back(a){return a&&a.navigationType==='traverse'&&a.from&&a.entry&&a.entry.index<a.from.index}
+function vis(el){var r=el.getBoundingClientRect();return r.width>0&&r.bottom>0&&r.top<innerHeight}
+addEventListener('pageswap',function(e){var vt=e.viewTransition,a=e.activation;if(vt&&D.classList.contains('vc-still')){vt.skipTransition();return}if(!vt||!a||!a.entry)return;
+ try{S.removeItem(K)}catch(_){}
+ var p=new URL(a.entry.url).pathname;if(a.navigationType==='traverse'&&a.entry.index<navigation.currentEntry.index)vt.types.add('vc-back');
+ var el=med(p)||dh();if(el&&vis(el)){tag(el,vt);try{S.setItem(K,p)}catch(_){}}});
+addEventListener('pagereveal',function(e){var vt=e.viewTransition,a=navigation.activation;if(!vt)return;if(D.classList.contains('vc-still')){vt.skipTransition();return}if(back(a))vt.types.add('vc-back');
+ var k=null;try{k=S.getItem(K);S.removeItem(K)}catch(_){}
+ if(k!==location.pathname)return;
+ var el=hero()||(a&&a.from&&med(new URL(a.from.url).pathname));if(el&&vis(el))tag(el,vt)});})();</script>
+<script>(function(){if(!(HTMLScriptElement.supports&&HTMLScriptElement.supports('speculationrules')))return;var k=matchMedia('(pointer:coarse)').matches?'prefetch':'prerender',r={};r[k]=[{where:{and:[{href_matches:'/*'},{not:{href_matches:['/api/*','/*.json','/*.xml','/*.txt']}},{not:{selector_matches:'[download],[target=_blank],[rel~=nofollow]'}}]},eagerness:'moderate'}];var s=document.createElement('script');s.type='speculationrules';s.textContent=JSON.stringify(r);document.head.appendChild(s)})()</script>
+<script>if(!(HTMLScriptElement.supports&&HTMLScriptElement.supports('speculationrules'))){var vcP=new Set;addEventListener('pointerover',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a||a.origin!==location.origin||a.target||a.hasAttribute('download')||/^\/api\//.test(a.pathname)||a.pathname===location.pathname||vcP.has(a.href))return;vcP.add(a.href);var l=document.createElement('link');l.rel='prefetch';l.href=a.href;document.head.appendChild(l)},{passive:true})}</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}var _c=null;try{_c=localStorage.getItem('vp-consent')}catch(e){}gtag('consent','default',{analytics_storage:_c==='yes'?'granted':'denied',ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',region:['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],wait_for_update:500});gtag('js',new Date());gtag('config','G-K75VNN6YG2');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K75VNN6YG2"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2046602277842498" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "vice-city.app", "item": "https://vice-city.app/"}, {"@type": "ListItem", "position": 2, "name": "vice-city.app API", "item": "https://vice-city.app/developers"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebAPI", "name": "vice-city.app API", "description": "A free GTA 6 API: characters, locations, vehicles, weapons and the map of Leonida as JSON, in English and French. OpenAPI 3.1, free key.", "url": "https://vice-city.app/developers", "documentation": "https://vice-city.app/developers", "provider": {"@type": "Organization", "@id": "https://vice-city.app/#org", "name": "vice-city.app", "url": "https://vice-city.app/", "email": "contact@lucasbonomi.com", "sameAs": ["https://x.com/ViceCityApp", "https://discord.gg/WBMhgrw5X4"], "founder": {"@type": "Person", "name": "Lucas Bonomi"}}, "inLanguage": ["en", "fr"], "alternateName": ["GTA 6 API", "GTA VI API", "Grand Theft Auto VI API"], "termsOfService": "https://vice-city.app/developers#terms", "isAccessibleForFree": true, "keywords": "GTA 6 API, GTA VI API, GTA 6 JSON, GTA 6 data, OpenAPI", "about": {"@type": "VideoGame", "name": "Grand Theft Auto VI", "alternateName": "GTA 6"}, "hasPart": {"@type": "CreativeWork", "name": "OpenAPI 3.1", "encodingFormat": "application/json", "url": "https://vice-city.app/openapi.json"}, "offers": [{"@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Developer", "price": "4.99", "priceCurrency": "EUR"}]}</script>
+</head>
+<body class="pdocs" data-lang="en">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="vs-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></symbol><symbol id="vs-characters" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18.5 14.5a6.5 6.5 0 0 1 3 5.5"/></symbol><symbol id="vs-locations" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol><symbol id="vs-vehicles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16.5H3v-4.5l2-5h11l3 5h2v4.5h-2M5 12h16M9.5 16.5h5"/><circle cx="7.5" cy="16.5" r="2"/><circle cx="16.5" cy="16.5" r="2"/></symbol><symbol id="vs-weapons" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="1.5"/><path d="M12 2v5M12 17v5M2 12h5M17 12h5"/></symbol><symbol id="vs-activities" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M2 14c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6 0M2 19c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6 0"/></symbol><symbol id="vs-radio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="12" rx="2.5"/><circle cx="8.5" cy="14" r="2.5"/><path d="M14 12h4M14 16h4M7 8l9-5"/></symbol><symbol id="vs-gallery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></symbol><symbol id="vs-release" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4M9 15.5l2 2 4-4"/></symbol><symbol id="vs-editions" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 9-5 9 5v8l-9 5-9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/></symbol><symbol id="vs-trailers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/></symbol><symbol id="vs-secrets" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-2.8 2.5-4 5.5-4 9s1.2 6.5 4 9M12 3c2.8 2.5 4 5.5 4 9s-1.2 6.5-4 9"/><circle cx="12" cy="12" r="2.2" fill="currentColor"/></symbol><symbol id="vs-cheats" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="10" rx="5"/><path d="M7 10v4M5 12h4"/><circle cx="16" cy="11" r="1" fill="currentColor"/><circle cx="18" cy="13" r="1" fill="currentColor"/></symbol><symbol id="vs-missions" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></symbol><symbol id="vs-checklist" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="m8 12 3 3 5-6"/></symbol><symbol id="vs-trophies" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10v5a5 5 0 0 1-10 0zM7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3M12 14v4M8 21h8"/></symbol><symbol id="vs-newsroom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h13v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM17 9h3v10a2 2 0 0 1-2 2M8 9h5M8 13h5M8 17h3"/></symbol><symbol id="vs-developers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16"/></symbol></svg>
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
+<header class="top">
+  <a class="mark" href="/" aria-label="vice-city.app, Home">vice-city.app</a>
+  <nav class="nav" aria-label="Menu"><a href="/map" data-vc-k="map"><svg class="vs-ico" aria-hidden="true"><use href="#vs-map"/></svg>Map</a><details class="vc-more vc-grp" name="vc-nav" data-vc-g="play"><summary>Guides<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="vc-more-m"><p class="vc-more-h">Guides</p><div class="vc-more-g"><a href="/missions"><span class="vs-ph"><img src="/img/vi/t/jason-and-lucia-05.webp" alt="" width="32" height="32" loading="lazy"></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-missions"/></svg>Missions</a><a href="/trophies"><span class="vs-ph"><img src="/img/vi/t/jason-and-lucia-12.webp" alt="" width="32" height="32" loading="lazy"></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-trophies"/></svg>Trophies</a><a href="/100-percent"><span class="vs-ph"><img src="/img/vi/t/leonida-keys-03.webp" alt="" width="32" height="32" loading="lazy"></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-checklist"/></svg>100% checklist</a><a href="/cheats"><span class="vs-ph"><img src="/img/vi/t/jason-duval-05.webp" alt="" width="32" height="32" loading="lazy"></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-cheats"/></svg>Cheats</a><a href="/secrets"><span class="vs-ph"><img src="/img/vi/t/grassrivers-08.webp" alt="" width="32" height="32" loading="lazy"></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-secrets"/></svg>Secrets</a><a href="/activities"><span class="vs-ph"><img src="/img/vi/t/leonida-keys-05.webp" alt="" width="32" height="32" loading="lazy"></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-activities"/></svg>Activities</a></div></div></details><details class="vc-more vc-grp" name="vc-nav" data-vc-g="world"><summary>World<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="vc-more-m"><p class="vc-more-h">World</p><div class="vc-more-g"><a href="/characters"><span class="vs-ph"><img src="/img/vi/t/jason-and-lucia-01.webp" alt="" width="32" height="32" loading="lazy"></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-characters"/></svg>Characters</a><a href="/locations"><span class="vs-ph"><img src="/img/vi/t/vice-city-10.webp" alt="" width="32" height="32" loading="lazy"></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-locations"/></svg>Locations</a><a href="/vehicles"><span class="vs-ph"><img src="/img/vi/t/ultimate-edition-grotti-cheetah-01.webp" alt="" width="32" height="32" loading="lazy"></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-vehicles"/></svg>Vehicles</a><a href="/weapons"><span class="vs-ph"><img src="/img/vi/t/ultimate-edition-weapon-variants-01.webp" alt="" width="32" height="32" loading="lazy"></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-weapons"/></svg>Weapons</a><a href="/radio"><span class="vs-ph"><img src="/img/vi/t/cocoteo-background.webp" alt="" width="32" height="32" loading="lazy"></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-radio"/></svg>Radio</a></div></div></details><details class="vc-more vc-grp" name="vc-nav" data-vc-g="game"><summary>The game<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="vc-more-m"><p class="vc-more-h">The game</p><div class="vc-more-g"><a href="/newsroom"><span class="vs-ph"><img src="/img/vi/t/vice-city-15.webp" alt="" width="32" height="32" loading="lazy"></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-newsroom"/></svg>News</a><a href="/trailers"><span class="vs-ph"><img src="/img/vi/t/jason-lucia-lock-and-load-landscape.webp" alt="" width="32" height="32" loading="lazy"></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-trailers"/></svg>Trailers</a><a href="/gallery"><span class="vs-ph"><img src="/img/vi/t/vice-city-01.webp" alt="" width="32" height="32" loading="lazy"></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-gallery"/></svg>Gallery</a><a href="/release-date"><span class="vs-ph"><img src="/img/vi/t/jason-lucia-rooftop-landscape.webp" alt="" width="32" height="32" loading="lazy"></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-release"/></svg>Release date</a><a href="/editions"><span class="vs-ph"><img src="/img/vi/t/vintage-vice-city-pack-01.webp" alt="" width="32" height="32" loading="lazy"></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-editions"/></svg>Editions</a></div></div></details><a class="vc-napi" href="/developers" data-vc-k="developers" aria-current=page><svg class="vs-ico" aria-hidden="true"><use href="#vs-developers"/></svg>API</a></nav>
+  <div class="tools">
+    <div class="vc-radio-slot" data-vc-radio-slot hidden></div>
+    <a class="vc-discord" href="https://discord.gg/WBMhgrw5X4" target="_blank" rel="noopener" aria-label="Join the Discord" title="Join the Discord"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.3 4.4A19.6 19.6 0 0 0 15.4 3l-.6 1.3a18.2 18.2 0 0 0-5.6 0L8.6 3a19.5 19.5 0 0 0-4.9 1.5C.6 9.1-.3 13.7.1 18.2a19.7 19.7 0 0 0 6 3l1.3-2.1a12.8 12.8 0 0 1-2-1l.5-.4a14 14 0 0 0 12.2 0l.5.4c-.6.4-1.3.7-2 1l1.3 2.1a19.6 19.6 0 0 0 6-3c.5-5.2-.9-9.8-3.6-13.8zM8 15.5c-1.2 0-2.2-1.1-2.2-2.4S6.8 10.7 8 10.7s2.2 1.1 2.2 2.4-1 2.4-2.2 2.4zm8 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4z"/></svg></a><a class="vc-x" href="https://x.com/ViceCityApp" target="_blank" rel="noopener me" aria-label="Follow us on X (@ViceCityApp)" title="Follow us on X (@ViceCityApp)"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M17.75 3h3.07l-6.71 7.67L22 21h-6.18l-4.84-6.33L5.44 21H2.37l7.18-8.2L2 3h6.34l4.37 5.78L17.75 3zm-1.08 16.2h1.7L7.4 4.73H5.58L16.67 19.2z"/></svg></a>
+    <button class="sbtn" type="button" data-search aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span><kbd>/</kbd></button>
+    <button class="vc-motion" type="button" data-vc-motion aria-pressed="true" data-label="Animations" data-on="On" data-off="Off" aria-label="Animations" title="Animations"><svg class="vc-m-on" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15v4M17 17h4M5 3v3M3.5 4.5h3"/></svg><svg class="vc-m-off" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6v12M15 6v12"/></svg></button>
+    <details class="vc-theme"><summary aria-label="Theme"><svg class="vc-i-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="vc-i-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="vc-i-system" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></summary><div class="vc-theme-m" role="menu" aria-label="Theme"><button type="button" role="menuitemradio" aria-checked="false" data-vc-theme="light"><svg class="vc-i-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Light</button><button type="button" role="menuitemradio" aria-checked="false" data-vc-theme="dark"><svg class="vc-i-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>Dark</button><button type="button" role="menuitemradio" aria-checked="false" data-vc-theme="system"><svg class="vc-i-system" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>System</button></div></details>
+    <details class="vs-lang"><summary class="lang" aria-label="Language : English">EN</summary><div class="vs-lang-m"><a href="/developers" hreflang="en" lang="en" data-setlang="en" aria-current=true>English</a><a href="/fr/developpeurs" hreflang="fr" lang="fr" data-setlang="fr">Français</a></div></details>
+    <button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><i></i><i></i></button>
+  </div>
+</header>
+<div class="drawer" id="drawer" hidden>
+  <nav aria-label="Menu"><a class="vs-dl" href="/map"><span class="vs-ph"><img src="/img/vi/t/leonida-keys-01.webp" alt="" width="48" height="48" loading="lazy"><svg class="vs-neon" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use data-href="/assets/neon.svg?v=1795102706#vs-n-map"/></svg></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-map"/></svg>Map</a><p class="vc-dh">Guides</p><a class="vs-dl" href="/missions"><span class="vs-ph"><img src="/img/vi/t/jason-and-lucia-05.webp" alt="" width="48" height="48" loading="lazy"><svg class="vs-neon" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use data-href="/assets/neon.svg?v=1795102706#vs-n-missions"/></svg></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-missions"/></svg>Missions</a><a class="vs-dl" href="/trophies"><span class="vs-ph"><img src="/img/vi/t/jason-and-lucia-12.webp" alt="" width="48" height="48" loading="lazy"><svg class="vs-neon" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use data-href="/assets/neon.svg?v=1795102706#vs-n-trophies"/></svg></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-trophies"/></svg>Trophies</a><a class="vs-dl" href="/100-percent"><span class="vs-ph"><img src="/img/vi/t/leonida-keys-03.webp" alt="" width="48" height="48" loading="lazy"><svg class="vs-neon" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use data-href="/assets/neon.svg?v=1795102706#vs-n-checklist"/></svg></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-checklist"/></svg>100% checklist</a><a class="vs-dl" href="/cheats"><span class="vs-ph"><img src="/img/vi/t/jason-duval-05.webp" alt="" width="48" height="48" loading="lazy"><svg class="vs-neon" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use data-href="/assets/neon.svg?v=1795102706#vs-n-cheats"/></svg></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-cheats"/></svg>Cheats</a><a class="vs-dl" href="/secrets"><span class="vs-ph"><img src="/img/vi/t/grassrivers-08.webp" alt="" width="48" height="48" loading="lazy"><svg class="vs-neon" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use data-href="/assets/neon.svg?v=1795102706#vs-n-secrets"/></svg></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-secrets"/></svg>Secrets</a><a class="vs-dl" href="/activities"><span class="vs-ph"><img src="/img/vi/t/leonida-keys-05.webp" alt="" width="48" height="48" loading="lazy"><svg class="vs-neon" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use data-href="/assets/neon.svg?v=1795102706#vs-n-activities"/></svg></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-activities"/></svg>Activities</a><p class="vc-dh">World</p><a class="vs-dl" href="/characters"><span class="vs-ph"><img src="/img/vi/t/jason-and-lucia-01.webp" alt="" width="48" height="48" loading="lazy"><svg class="vs-neon" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use data-href="/assets/neon.svg?v=1795102706#vs-n-characters"/></svg></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-characters"/></svg>Characters</a><a class="vs-dl" href="/locations"><span class="vs-ph"><img src="/img/vi/t/vice-city-10.webp" alt="" width="48" height="48" loading="lazy"><svg class="vs-neon" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use data-href="/assets/neon.svg?v=1795102706#vs-n-locations"/></svg></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-locations"/></svg>Locations</a><a class="vs-dl" href="/vehicles"><span class="vs-ph"><img src="/img/vi/t/ultimate-edition-grotti-cheetah-01.webp" alt="" width="48" height="48" loading="lazy"><svg class="vs-neon" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use data-href="/assets/neon.svg?v=1795102706#vs-n-vehicles"/></svg></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-vehicles"/></svg>Vehicles</a><a class="vs-dl" href="/weapons"><span class="vs-ph"><img src="/img/vi/t/ultimate-edition-weapon-variants-01.webp" alt="" width="48" height="48" loading="lazy"><svg class="vs-neon" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use data-href="/assets/neon.svg?v=1795102706#vs-n-weapons"/></svg></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-weapons"/></svg>Weapons</a><a class="vs-dl" href="/radio"><span class="vs-ph"><img src="/img/vi/t/cocoteo-background.webp" alt="" width="48" height="48" loading="lazy"><svg class="vs-neon" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use data-href="/assets/neon.svg?v=1795102706#vs-n-radio"/></svg></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-radio"/></svg>Radio</a><p class="vc-dh">The game</p><a class="vs-dl" href="/newsroom"><span class="vs-ph"><img src="/img/vi/t/vice-city-15.webp" alt="" width="48" height="48" loading="lazy"><svg class="vs-neon" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use data-href="/assets/neon.svg?v=1795102706#vs-n-newsroom"/></svg></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-newsroom"/></svg>News</a><a class="vs-dl" href="/trailers"><span class="vs-ph"><img src="/img/vi/t/jason-lucia-lock-and-load-landscape.webp" alt="" width="48" height="48" loading="lazy"><svg class="vs-neon" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use data-href="/assets/neon.svg?v=1795102706#vs-n-trailers"/></svg></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-trailers"/></svg>Trailers</a><a class="vs-dl" href="/gallery"><span class="vs-ph"><img src="/img/vi/t/vice-city-01.webp" alt="" width="48" height="48" loading="lazy"><svg class="vs-neon" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use data-href="/assets/neon.svg?v=1795102706#vs-n-gallery"/></svg></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-gallery"/></svg>Gallery</a><a class="vs-dl" href="/release-date"><span class="vs-ph"><img src="/img/vi/t/jason-lucia-rooftop-landscape.webp" alt="" width="48" height="48" loading="lazy"><svg class="vs-neon" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use data-href="/assets/neon.svg?v=1795102706#vs-n-release"/></svg></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-release"/></svg>Release date</a><a class="vs-dl" href="/editions"><span class="vs-ph"><img src="/img/vi/t/vintage-vice-city-pack-01.webp" alt="" width="48" height="48" loading="lazy"><svg class="vs-neon" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use data-href="/assets/neon.svg?v=1795102706#vs-n-editions"/></svg></span><svg class="vs-ico" aria-hidden="true"><use href="#vs-editions"/></svg>Editions</a><a href="/about">About</a><a href="/developers">GTA 6 API</a><a class="vc-discord-dl" href="https://discord.gg/WBMhgrw5X4" target="_blank" rel="noopener"><span class="vc-discord-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.3 4.4A19.6 19.6 0 0 0 15.4 3l-.6 1.3a18.2 18.2 0 0 0-5.6 0L8.6 3a19.5 19.5 0 0 0-4.9 1.5C.6 9.1-.3 13.7.1 18.2a19.7 19.7 0 0 0 6 3l1.3-2.1a12.8 12.8 0 0 1-2-1l.5-.4a14 14 0 0 0 12.2 0l.5.4c-.6.4-1.3.7-2 1l1.3 2.1a19.6 19.6 0 0 0 6-3c.5-5.2-.9-9.8-3.6-13.8zM8 15.5c-1.2 0-2.2-1.1-2.2-2.4S6.8 10.7 8 10.7s2.2 1.1 2.2 2.4-1 2.4-2.2 2.4zm8 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4z"/></svg></span>Discord</a><a class="vc-x-dl" href="https://x.com/ViceCityApp" target="_blank" rel="noopener me"><span class="vc-x-ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M17.75 3h3.07l-6.71 7.67L22 21h-6.18l-4.84-6.33L5.44 21H2.37l7.18-8.2L2 3h6.34l4.37 5.78L17.75 3zm-1.08 16.2h1.7L7.4 4.73H5.58L16.67 19.2z"/></svg></span>X <small>@ViceCityApp</small></a></nav>
+  <div class="vc-dtools"><button class="vc-motion" type="button" data-vc-motion aria-pressed="true" data-label="Animations" data-on="On" data-off="Off" aria-label="Animations"><svg class="vc-m-on" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15v4M17 17h4M5 3v3M3.5 4.5h3"/></svg><svg class="vc-m-off" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6v12M15 6v12"/></svg>Animations</button><div class="vc-dtheme" role="radiogroup" aria-label="Theme"><button type="button" aria-checked="false" role="radio" data-vc-theme="light"><svg class="vc-i-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Light</button><button type="button" aria-checked="false" role="radio" data-vc-theme="dark"><svg class="vc-i-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>Dark</button><button type="button" aria-checked="false" role="radio" data-vc-theme="system"><svg class="vc-i-system" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>System</button></div></div>
+  <div class="vs-lang-row"><a class="pill ghost" href="/fr/developpeurs" hreflang="fr" lang="fr" data-setlang="fr">Français</a></div>
+</div>
+<p class="vc-grow" role="note"><i class="vc-grow-dot" aria-hidden="true"></i><span>This is only the start: every page gets richer as we play GTA 6, from November 19.</span> <a href="/contact">Missing something?</a></p><main id="main" class="docs">
+<section class="dhero"><div class="in dh">
+  <div class="dht"><p class="kicker"><a href="/">vice-city.app</a> / Developers</p>
+  <h1 class="display"><span class="vc-w" style="--vc-i:0">vice-city.app</span> <span class="vc-w" style="--vc-i:1">API:</span><br> <span class="vc-w" style="--vc-i:2"><em data-vc-nt="GTA 6 data as JSON">GTA 6 data as JSON</em></span></h1>
+  <p class="lead">561 entries on Leonida’s characters, locations, vehicles, weapons, activities and radio stations, in English and French. One format for everything, a free key, and a map as GeoJSON.</p>
+  <div class="row"><a class="pill" href="https://madamnazar.io/account?from=vice-city#api" rel="noopener">Get a free key</a><a class="pill ghost" href="#start">Quick start</a></div>
+  <ul class="dstats"><li><b>561</b>entries</li><li><b>11</b>collections</li><li><b>EN · FR</b>every text</li><li><b>OpenAPI 3.1</b><a href="/openapi.json">openapi.json</a></li></ul></div>
+  <div class="dhc"><div class="code" id="c19"><div class="ch"><div class="tabs" role="tablist"><span class="cl">Request</span></div><button type="button" class="cp" data-copy>Copy</button></div><pre data-pane=""><code>GET /api/v1/vehicles/grotti-95-cheetah?lang=en</code></pre></div><div class="code out"><div class="ch"><span class="cl"><i class="dot"></i>200 OK</span></div><pre><code>{
+  <span class="k">&quot;data&quot;</span>: {
+    <span class="k">&quot;id&quot;</span>: <span class="s">&quot;vehicle.grotti-95-cheetah&quot;</span>,
+    <span class="k">&quot;type&quot;</span>: <span class="s">&quot;vehicle&quot;</span>,
+    <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Grotti '95 Cheetah&quot;</span>,
+    <span class="k">&quot;attributes&quot;</span>: {
+      <span class="k">&quot;manufacturer&quot;</span>: <span class="s">&quot;Grotti&quot;</span>,
+      <span class="k">&quot;model&quot;</span>: <span class="s">&quot;'95 Cheetah&quot;</span>,
+      <span class="k">&quot;class&quot;</span>: <span class="s">&quot;Sports&quot;</span>,
+      <span class="k">&quot;inspiration&quot;</span>: <span class="s">&quot;Ferrari&quot;</span>,
+      <span class="k">&quot;seen_in&quot;</span>: <span class="s">&quot;Ultimate Edition&quot;</span>
+    },
+    <span class="k">&quot;relations&quot;</span>: [
+      {
+        <span class="k">&quot;rel&quot;</span>: <span class="s">&quot;manufacturer&quot;</span>,
+        <span class="k">&quot;id&quot;</span>: <span class="s">&quot;manufacturer.grotti&quot;</span>,
+        <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Grotti&quot;</span>
+      }
+    ],
+    <span class="k">&quot;reliability&quot;</span>: <span class="s">&quot;official&quot;</span>,
+    <span class="k">&quot;url&quot;</span>: <span class="s">&quot;https://vice-city.app/vehicles/grotti-95-cheetah&quot;</span>
+  }
+}</code></pre></div></div>
+</div></section>
+<aside class="ad" aria-label="Advertisement"><span class="adl">Advertisement</span><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2046602277842498" data-ad-slot="7948800993" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></aside>
+<div class="in dgrid">
+<nav class="dside" aria-label="On this page"><p>On this page</p><a href="#start">Quick start</a><a href="#auth">Authentication</a><a href="#plans">Plans and limits</a><a href="#model">Data model</a><a href="#collections">Collections</a><a href="#languages">Languages</a><a href="#reference">API reference</a><a class="sub" href="#e-list">/{collection}</a><a class="sub" href="#e-get">/{collection}/{slug}</a><a class="sub" href="#e-related">/{collection}/{slug}/related</a><a class="sub" href="#e-search">/search</a><a class="sub" href="#e-types">/types</a><a class="sub" href="#e-game">/game</a><a class="sub" href="#e-map">/map/{layer}</a><a class="sub" href="#e-changes">/changes</a><a class="sub" href="#e-export">/export/{collection}</a><a href="#cache">Caching</a><a href="#errors">Errors</a><a href="#terms">Terms of use</a></nav>
+<div class="dmain">
+
+<section id="start"><h2 class="display">Quick <em data-vc-nt="start">start</em></h2>
+<ol class="steps">
+<li><h3>Make a first call</h3><p>The <code>vc_demo</code> key needs no account. It returns the first 5 results of each list, which is enough to see the format.</p>
+<div class="code" id="c21"><div class="ch"><div class="tabs" role="tablist"><button type="button" role="tab" data-tab="curl" aria-selected="true">curl</button><button type="button" role="tab" data-tab="javascript" aria-selected="false">JavaScript</button><button type="button" role="tab" data-tab="python" aria-selected="false">Python</button></div><button type="button" class="cp" data-copy>Copy</button></div><pre data-pane="curl"><code>curl &quot;https://vice-city.app/api/v1/characters?lang=en&quot; \
+  -H &quot;x-api-key: vc_demo&quot;</code></pre><pre data-pane="javascript" hidden><code>const res = await fetch(&quot;https://vice-city.app/api/v1/characters?lang=en&quot;, {
+  headers: { &quot;x-api-key&quot;: &quot;vc_demo&quot; },
+});
+const { data, meta } = await res.json();</code></pre><pre data-pane="python" hidden><code>import requests
+
+res = requests.get(
+    &quot;https://vice-city.app/api/v1/characters?lang=en&quot;,
+    headers={&quot;x-api-key&quot;: &quot;vc_demo&quot;},
+)
+data = res.json()[&quot;data&quot;]</code></pre></div><button type="button" class="run" data-run="/characters?lang=en&fields=name,summary">Run it here</button><div class="live" hidden></div></li>
+<li><h3>Get your own key</h3><p>Sign in to your <a href="https://madamnazar.io/account?from=vice-city#api" rel="noopener">MadamNazar.io account</a> and open the Developer API section. Your key starts with <code>mn_live_</code>. vice-city.app is run by the same team, so the same key works on both APIs.</p></li>
+<li><h3>Ask for what you need</h3><p>Filter, pick fields and choose a language in the URL. This returns the official sports cars, names only:</p>
+<div class="code" id="c22"><div class="ch"><div class="tabs" role="tablist"><button type="button" role="tab" data-tab="curl" aria-selected="true">curl</button><button type="button" role="tab" data-tab="javascript" aria-selected="false">JavaScript</button><button type="button" role="tab" data-tab="python" aria-selected="false">Python</button></div><button type="button" class="cp" data-copy>Copy</button></div><pre data-pane="curl"><code>curl &quot;https://vice-city.app/api/v1/vehicles?filter[class]=sport&amp;filter[reliability]=official&amp;fields=name&amp;lang=en&quot; \
+  -H &quot;x-api-key: YOUR_KEY&quot;</code></pre><pre data-pane="javascript" hidden><code>const res = await fetch(&quot;https://vice-city.app/api/v1/vehicles?filter[class]=sport&amp;filter[reliability]=official&amp;fields=name&amp;lang=en&quot;, {
+  headers: { &quot;x-api-key&quot;: &quot;YOUR_KEY&quot; },
+});
+const { data, meta } = await res.json();</code></pre><pre data-pane="python" hidden><code>import requests
+
+res = requests.get(
+    &quot;https://vice-city.app/api/v1/vehicles?filter[class]=sport&amp;filter[reliability]=official&amp;fields=name&amp;lang=en&quot;,
+    headers={&quot;x-api-key&quot;: &quot;YOUR_KEY&quot;},
+)
+data = res.json()[&quot;data&quot;]</code></pre></div></li>
+</ol></section>
+
+<section id="auth"><h2 class="display">Authen<em data-vc-nt="tication">tication</em></h2>
+<p>Send your key with every request, in the <code>x-api-key</code> header. <code>Authorization: Bearer …</code> works too.</p>
+<div class="code" id="c23"><div class="ch"><div class="tabs" role="tablist"><span class="cl">Header</span></div><button type="button" class="cp" data-copy>Copy</button></div><pre data-pane=""><code>x-api-key: mn_live_xxxxxxxxxxxxxxxxxxxxxxxx</code></pre></div>
+<p>The API accepts calls from a browser (CORS is open), but a key in front-end code is visible to everyone. Call the API from your server, or cache the answers there.</p>
+<p class="hint">Base URL : <code>https://vice-city.app/api/v1</code></p></section>
+
+<section id="plans"><h2 class="display">Plans and <em data-vc-nt="limits">limits</em></h2>
+<div class="pcs">
+<div class="pc "><h3>Free</h3><p class="pr"><b>€0</b> </p><p class="pp">To try the API and for small personal projects.</p><ul><li><span>Requests a day</span>5</li><li><span>Results per page</span>25</li><li><span>Catalogue and search</span><b class="y">✓</b></li><li><span>English and French</span><b class="y">✓</b></li><li><span>Map of Leonida (GeoJSON)</span><b class="x">–</b></li><li><span>Change feed</span><b class="x">–</b></li><li><span>Full exports (NDJSON)</span><b class="x">–</b></li><li><span>Commercial use</span><b class="x">–</b></li><li><span>MadamNazar.io API and Premium included</span><b class="x">–</b></li></ul><a class="pill ghost" href="https://madamnazar.io/account?from=vice-city#api" rel="noopener">Get a free key</a></div>
+<div class="pc hot"><h3>Developer</h3><p class="pr"><b>€4.99</b> a month, or €39 a year</p><p class="pp">For apps, bots and sites that run every day.</p><ul><li><span>Requests a day</span>1,000</li><li><span>Results per page</span>200</li><li><span>Catalogue and search</span><b class="y">✓</b></li><li><span>English and French</span><b class="y">✓</b></li><li><span>Map of Leonida (GeoJSON)</span><b class="y">✓</b></li><li><span>Change feed</span><b class="y">✓</b></li><li><span>Full exports (NDJSON)</span><b class="y">✓</b></li><li><span>Commercial use</span><b class="y">✓</b></li><li><span>MadamNazar.io API and Premium included</span><b class="y">✓</b></li></ul><a class="pill" href="https://madamnazar.io/account?from=vice-city#api" rel="noopener">Get a Developer key</a></div>
+</div>
+<p>Requests are counted per key and per day, and the counter resets at 00:00 UTC. Calls to this API and to the MadamNazar.io API are counted separately. Every answer tells you where you stand:</p>
+<div class="code" id="c24"><div class="ch"><div class="tabs" role="tablist"><span class="cl">Response headers</span></div><button type="button" class="cp" data-copy>Copy</button></div><pre data-pane=""><code>RateLimit-Limit: 5
+RateLimit-Remaining: 3
+RateLimit-Reset: 28412</code></pre></div>
+<p class="hint">With 5 requests a day, a free key is for testing: ask for 25 entries per call and keep the answers. The data changes a few times a day at most.</p></section>
+<aside class="ad" aria-label="Advertisement"><span class="adl">Advertisement</span><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2046602277842498" data-ad-slot="7948800993" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></aside>
+<section id="model"><h2 class="display">Data <em data-vc-nt="model">model</em></h2>
+<p>A character, a car and a bar all have the same shape. Learn it once and every collection reads the same way, including the ones added after launch.</p>
+<dl class="pm wide"><div><dt><code>id</code></dt><dd>Stable and never reused, <code>type.slug</code>. Store this one.</dd></div><div><dt><code>name, summary</code></dt><dd>Translated texts.</dd></div><div><dt><code>attributes</code></dt><dd>What is specific to the type: a vehicle’s class, a weapon’s real model. <code>/types</code> lists them.</dd></div><div><dt><code>relations</code></dt><dd>Typed links to other entries, with their name and address.</dd></div><div><dt><code>reliability</code></dt><dd><code>official</code> (shown or named by Rockstar), <code>press</code> or <code>community</code>. Leaks and rumours are never in the API.</dd></div><div><dt><code>verified_in_game</code></dt><dd>Turns <code>true</code> once we have checked the entry in the game, from November 19, 2026.</dd></div><div><dt><code>spoiler</code></dt><dd>Story content. Left out of lists unless you send <code>spoilers=true</code>.</dd></div><div><dt><code>sources</code></dt><dd>The pages the entry comes from.</dd></div><div><dt><code>url</code></dt><dd>The entry’s page on vice-city.app, to link back to.</dd></div><div><dt><code>created_at, updated_at</code></dt><dd>Dates, to sync with <code>/changes</code>.</dd></div></dl></section>
+
+<section id="collections"><h2 class="display">Collec<em data-vc-nt="tions">tions</em></h2>
+<div class="cg"><a href="#e-list" class="dcc"><code>/locations</code><b>94</b><span>The 6 regions of Leonida, their districts and towns.</span></a><a href="#e-list" class="dcc"><code>/businesses</code><b>69</b><span>Bars, clubs, stores, hotels, garages and other named places.</span></a><a href="#e-list" class="dcc"><code>/characters</code><b>66</b><span>Protagonists, supporting cast and radio hosts shown or named officially.</span></a><a href="#e-list" class="dcc"><code>/manufacturers</code><b>32</b><span>In-game vehicle brands and the real-world make each one stands for.</span></a><a href="#e-list" class="dcc"><code>/vehicles</code><b>172</b><span>Cars, bikes, boats and aircraft, with their class and real-world inspiration.</span></a><a href="#e-list" class="dcc"><code>/weapons</code><b>37</b><span>Firearms, melee weapons and throwables, with the real-world model behind each one.</span></a><a href="#e-list" class="dcc"><code>/activities</code><b>40</b><span>Side activities and minigames shown by Rockstar or described by the press.</span></a><a href="#e-list" class="dcc"><code>/radio-stations</code><b>22</b><span>Stations, genres, hosts and the tracks heard so far.</span></a><a href="#e-list" class="dcc"><code>/trailers</code><b>4</b><span>Official trailers, their date, music and what each one revealed.</span></a><a href="#e-list" class="dcc"><code>/editions</code><b>4</b><span>Standard and Ultimate editions, pre-order bonuses and prices.</span></a><a href="#e-list" class="dcc"><code>/events</code><b>21</b><span>Key dates of the game, from early development to launch.</span></a></div>
+<p>Declared and empty until the game is out, then filled from the game : <code>/missions</code> <code>/collectibles</code> <code>/trophies</code> <code>/cheats</code>.</p></section>
+
+<section id="languages"><h2 class="display">Lang<em data-vc-nt="uages">uages</em></h2>
+<p>Every translated text comes in English and French. By default you get both, which suits a bilingual app or a local copy:</p>
+<div class="code out"><div class="ch"><span class="cl"><i class="dot"></i>200 OK · without lang</span></div><pre><code>{
+  <span class="k">&quot;id&quot;</span>: <span class="s">&quot;character.jason-duval&quot;</span>,
+  <span class="k">&quot;name&quot;</span>: {
+    <span class="k">&quot;en&quot;</span>: <span class="s">&quot;Jason Duval&quot;</span>,
+    <span class="k">&quot;fr&quot;</span>: <span class="s">&quot;Jason Duval&quot;</span>
+  },
+  <span class="k">&quot;summary&quot;</span>: {
+    <span class="k">&quot;en&quot;</span>: <span class="s">&quot;Playable protagonist. Former soldier now working for smugglers in the Keys; Brian's employee and tenant in Key Lento.&quot;</span>,
+    <span class="k">&quot;fr&quot;</span>: <span class="s">&quot;Protagoniste jouable. Ancien militaire, travaille pour des trafiquants des Keys ; employé et locataire de Brian à Key Lento.&quot;</span>
+  }
+}</code></pre></div>
+<p>Add <code>lang=en</code> and the same fields become plain strings:</p>
+<div class="code out"><div class="ch"><span class="cl"><i class="dot"></i>200 OK · lang=en</span></div><pre><code>{
+  <span class="k">&quot;id&quot;</span>: <span class="s">&quot;character.jason-duval&quot;</span>,
+  <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Jason Duval&quot;</span>,
+  <span class="k">&quot;summary&quot;</span>: <span class="s">&quot;Playable protagonist. Former soldier now working for smugglers in the Keys; Brian's employee and tenant in Key Lento.&quot;</span>
+}</code></pre></div></section>
+
+<section id="reference"><h2 class="display">API <em data-vc-nt="reference">reference</em></h2>
+<p>All endpoints are <code>GET</code> and start with <code>https://vice-city.app/api/v1</code>. Answers are JSON with a <code>data</code> field and a <code>meta</code> field. The Run buttons call the live API with the demo key.</p>
+<h3 class="egrp">Catalogue</h3><article class="ep" id="e-list">
+<header><h3><span class="verb">GET</span><code>/{collection}</code></h3><span class="plan free">Free</span></header>
+<div class="epg"><div class="ept"><p class="epd"><strong>List a collection.</strong> Returns the entries of one collection, sorted by name, with filters and paging.</p><dl class="pm"><div><dt><code>lang</code><span>en | fr</span></dt><dd>One language as plain strings. Leave it out to get both.</dd></div><div><dt><code>limit</code><span>1–25 · 1–200</span></dt><dd>Page size. Up to 25 with a Free key, 200 with a Developer key.</dd></div><div><dt><code>cursor</code><span>string</span></dt><dd>Value of <code>links.next_cursor</code> from the previous page.</dd></div><div><dt><code>filter[…]</code><span>string</span></dt><dd>Keep entries matching a field, an attribute or a relation: <code>filter[class]=sport</code>, <code>filter[reliability]=official</code>, <code>filter[region]=vice-city</code>. Repeat to combine.</dd></div><div><dt><code>q</code><span>string</span></dt><dd>Keep entries whose name or summary contains this text.</dd></div><div><dt><code>sort</code><span>name | updated_at | created_at</span></dt><dd>Prefix with <code>-</code> for descending order.</dd></div><div><dt><code>fields</code><span>list</span></dt><dd>Top-level fields to keep, comma-separated: <code>fields=name,attributes</code>.</dd></div></dl></div>
+<div class="epc"><div class="code" id="c1"><div class="ch"><div class="tabs" role="tablist"><button type="button" role="tab" data-tab="curl" aria-selected="true">curl</button><button type="button" role="tab" data-tab="javascript" aria-selected="false">JavaScript</button><button type="button" role="tab" data-tab="python" aria-selected="false">Python</button></div><button type="button" class="cp" data-copy>Copy</button></div><pre data-pane="curl"><code>curl &quot;https://vice-city.app/api/v1/vehicles?filter[class]=sport&amp;fields=name&amp;limit=3&amp;lang=en&quot; \
+  -H &quot;x-api-key: YOUR_KEY&quot;</code></pre><pre data-pane="javascript" hidden><code>const res = await fetch(&quot;https://vice-city.app/api/v1/vehicles?filter[class]=sport&amp;fields=name&amp;limit=3&amp;lang=en&quot;, {
+  headers: { &quot;x-api-key&quot;: &quot;YOUR_KEY&quot; },
+});
+const { data, meta } = await res.json();</code></pre><pre data-pane="python" hidden><code>import requests
+
+res = requests.get(
+    &quot;https://vice-city.app/api/v1/vehicles?filter[class]=sport&amp;fields=name&amp;limit=3&amp;lang=en&quot;,
+    headers={&quot;x-api-key&quot;: &quot;YOUR_KEY&quot;},
+)
+data = res.json()[&quot;data&quot;]</code></pre></div><div class="code out"><div class="ch"><span class="cl"><i class="dot"></i>200 OK · example</span></div><pre><code>{
+  <span class="k">&quot;data&quot;</span>: [
+    {
+      <span class="k">&quot;id&quot;</span>: <span class="s">&quot;vehicle.bravado-buffalo-course-46&quot;</span>,
+      <span class="k">&quot;type&quot;</span>: <span class="s">&quot;vehicle&quot;</span>,
+      <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Bravado Buffalo (course #46)&quot;</span>
+    },
+    {
+      <span class="k">&quot;id&quot;</span>: <span class="s">&quot;vehicle.classic-roadster-36&quot;</span>,
+      <span class="k">&quot;type&quot;</span>: <span class="s">&quot;vehicle&quot;</span>,
+      <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Classic roadster #36&quot;</span>
+    },
+    {
+      <span class="k">&quot;id&quot;</span>: <span class="s">&quot;vehicle.classic-roadster-r-badge&quot;</span>,
+      <span class="k">&quot;type&quot;</span>: <span class="s">&quot;vehicle&quot;</span>,
+      <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Classic roadster (R badge)&quot;</span>
+    }
+  ],
+  <span class="k">&quot;links&quot;</span>: {
+    <span class="k">&quot;self&quot;</span>: <span class="s">&quot;https://vice-city.app/api/v1/vehicles?filter[class]=sport&amp;limit=3&quot;</span>,
+    <span class="k">&quot;next&quot;</span>: <span class="s">&quot;https://vice-city.app/api/v1/vehicles?filter[class]=sport&amp;limit=3&amp;cursor=Mw&quot;</span>,
+    <span class="k">&quot;next_cursor&quot;</span>: <span class="s">&quot;Mw&quot;</span>
+  },
+  <span class="k">&quot;meta&quot;</span>: {
+    <span class="k">&quot;api_version&quot;</span>: <span class="s">&quot;v1&quot;</span>,
+    <span class="k">&quot;data_version&quot;</span>: <span class="s">&quot;81404497d7c3&quot;</span>,
+    <span class="k">&quot;plan&quot;</span>: <span class="s">&quot;free&quot;</span>,
+    <span class="k">&quot;total&quot;</span>: <span class="n">4</span>,
+    <span class="k">&quot;docs&quot;</span>: <span class="s">&quot;https://vice-city.app/developers&quot;</span>
+  }
+}</code></pre></div><button type="button" class="run" data-run="/vehicles?filter[class]=sport&amp;fields=name&amp;limit=3&amp;lang=en">Run it with the demo key</button><div class="live" hidden></div></div></div>
+</article><article class="ep" id="e-get">
+<header><h3><span class="verb">GET</span><code>/{collection}/{slug}</code></h3><span class="plan free">Free</span></header>
+<div class="epg"><div class="ept"><p class="epd"><strong>Get one entry.</strong> Returns one entry with all its fields. The <code>slug</code> is the last part of its <code>id</code>.</p><dl class="pm"><div><dt><code>lang</code><span>en | fr</span></dt><dd>One language as plain strings. Leave it out to get both.</dd></div><div><dt><code>fields</code><span>list</span></dt><dd>Top-level fields to keep, comma-separated: <code>fields=name,attributes</code>.</dd></div></dl></div>
+<div class="epc"><div class="code" id="c3"><div class="ch"><div class="tabs" role="tablist"><button type="button" role="tab" data-tab="curl" aria-selected="true">curl</button><button type="button" role="tab" data-tab="javascript" aria-selected="false">JavaScript</button><button type="button" role="tab" data-tab="python" aria-selected="false">Python</button></div><button type="button" class="cp" data-copy>Copy</button></div><pre data-pane="curl"><code>curl &quot;https://vice-city.app/api/v1/characters/jason-duval?lang=en&quot; \
+  -H &quot;x-api-key: YOUR_KEY&quot;</code></pre><pre data-pane="javascript" hidden><code>const res = await fetch(&quot;https://vice-city.app/api/v1/characters/jason-duval?lang=en&quot;, {
+  headers: { &quot;x-api-key&quot;: &quot;YOUR_KEY&quot; },
+});
+const { data, meta } = await res.json();</code></pre><pre data-pane="python" hidden><code>import requests
+
+res = requests.get(
+    &quot;https://vice-city.app/api/v1/characters/jason-duval?lang=en&quot;,
+    headers={&quot;x-api-key&quot;: &quot;YOUR_KEY&quot;},
+)
+data = res.json()[&quot;data&quot;]</code></pre></div><div class="code out"><div class="ch"><span class="cl"><i class="dot"></i>200 OK · example</span></div><pre><code>{
+  <span class="k">&quot;data&quot;</span>: {
+    <span class="k">&quot;id&quot;</span>: <span class="s">&quot;character.jason-duval&quot;</span>,
+    <span class="k">&quot;type&quot;</span>: <span class="s">&quot;character&quot;</span>,
+    <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Jason Duval&quot;</span>,
+    <span class="k">&quot;summary&quot;</span>: <span class="s">&quot;Playable protagonist. Former soldier now working for smugglers in the Keys; Brian's employee and tenant in Key Lento.&quot;</span>,
+    <span class="k">&quot;attributes&quot;</span>: {
+      <span class="k">&quot;alias&quot;</span>: <span class="n">null</span>,
+      <span class="k">&quot;group&quot;</span>: <span class="s">&quot;Protagonists&quot;</span>,
+      <span class="k">&quot;appearances&quot;</span>: <span class="s">&quot;Trailer 2, Extended Look, launch trailer, cover art, Rockstar bio&quot;</span>,
+      <span class="k">&quot;voice&quot;</span>: <span class="n">null</span>
+    },
+    <span class="k">&quot;reliability&quot;</span>: <span class="s">&quot;official&quot;</span>,
+    <span class="k">&quot;verified_in_game&quot;</span>: <span class="n">false</span>,
+    <span class="k">&quot;sources&quot;</span>: [
+      {
+        <span class="k">&quot;url&quot;</span>: <span class="s">&quot;https://www.rockstargames.com/VI&quot;</span>,
+        <span class="k">&quot;site&quot;</span>: <span class="s">&quot;rockstargames.com&quot;</span>
+      }
+    ],
+    <span class="k">&quot;url&quot;</span>: <span class="s">&quot;https://vice-city.app/characters/jason-duval&quot;</span>,
+    <span class="k">&quot;updated_at&quot;</span>: <span class="s">&quot;2026-11-16&quot;</span>
+  },
+  <span class="k">&quot;meta&quot;</span>: {
+    <span class="k">&quot;api_version&quot;</span>: <span class="s">&quot;v1&quot;</span>,
+    <span class="k">&quot;data_version&quot;</span>: <span class="s">&quot;81404497d7c3&quot;</span>,
+    <span class="k">&quot;plan&quot;</span>: <span class="s">&quot;free&quot;</span>,
+    <span class="k">&quot;docs&quot;</span>: <span class="s">&quot;https://vice-city.app/developers&quot;</span>
+  }
+}</code></pre></div><button type="button" class="run" data-run="/characters/jason-duval?lang=en">Run it with the demo key</button><div class="live" hidden></div></div></div>
+</article><article class="ep" id="e-related">
+<header><h3><span class="verb">GET</span><code>/{collection}/{slug}/related</code></h3><span class="plan free">Free</span></header>
+<div class="epg"><div class="ept"><p class="epd"><strong>Get linked entries.</strong> Returns the entries this one points to and the ones that point to it. For a region: its districts and businesses.</p><dl class="pm"><div><dt><code>lang</code><span>en | fr</span></dt><dd>One language as plain strings. Leave it out to get both.</dd></div><div><dt><code>limit</code><span>1–25 · 1–200</span></dt><dd>How many entries to return.</dd></div><div><dt><code>fields</code><span>list</span></dt><dd>Top-level fields to keep, comma-separated: <code>fields=name,attributes</code>.</dd></div></dl></div>
+<div class="epc"><div class="code" id="c5"><div class="ch"><div class="tabs" role="tablist"><button type="button" role="tab" data-tab="curl" aria-selected="true">curl</button><button type="button" role="tab" data-tab="javascript" aria-selected="false">JavaScript</button><button type="button" role="tab" data-tab="python" aria-selected="false">Python</button></div><button type="button" class="cp" data-copy>Copy</button></div><pre data-pane="curl"><code>curl &quot;https://vice-city.app/api/v1/locations/vice-city/related?fields=name&amp;limit=3&amp;lang=en&quot; \
+  -H &quot;x-api-key: YOUR_KEY&quot;</code></pre><pre data-pane="javascript" hidden><code>const res = await fetch(&quot;https://vice-city.app/api/v1/locations/vice-city/related?fields=name&amp;limit=3&amp;lang=en&quot;, {
+  headers: { &quot;x-api-key&quot;: &quot;YOUR_KEY&quot; },
+});
+const { data, meta } = await res.json();</code></pre><pre data-pane="python" hidden><code>import requests
+
+res = requests.get(
+    &quot;https://vice-city.app/api/v1/locations/vice-city/related?fields=name&amp;limit=3&amp;lang=en&quot;,
+    headers={&quot;x-api-key&quot;: &quot;YOUR_KEY&quot;},
+)
+data = res.json()[&quot;data&quot;]</code></pre></div><div class="code out"><div class="ch"><span class="cl"><i class="dot"></i>200 OK · example</span></div><pre><code>{
+  <span class="k">&quot;data&quot;</span>: [
+    {
+      <span class="k">&quot;id&quot;</span>: <span class="s">&quot;location.ocean-beach&quot;</span>,
+      <span class="k">&quot;type&quot;</span>: <span class="s">&quot;location&quot;</span>,
+      <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Ocean Beach&quot;</span>
+    },
+    {
+      <span class="k">&quot;id&quot;</span>: <span class="s">&quot;location.washington-beach&quot;</span>,
+      <span class="k">&quot;type&quot;</span>: <span class="s">&quot;location&quot;</span>,
+      <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Washington Beach&quot;</span>
+    },
+    {
+      <span class="k">&quot;id&quot;</span>: <span class="s">&quot;location.vice-beach&quot;</span>,
+      <span class="k">&quot;type&quot;</span>: <span class="s">&quot;location&quot;</span>,
+      <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Vice Beach&quot;</span>
+    }
+  ],
+  <span class="k">&quot;meta&quot;</span>: {
+    <span class="k">&quot;api_version&quot;</span>: <span class="s">&quot;v1&quot;</span>,
+    <span class="k">&quot;data_version&quot;</span>: <span class="s">&quot;81404497d7c3&quot;</span>,
+    <span class="k">&quot;plan&quot;</span>: <span class="s">&quot;free&quot;</span>,
+    <span class="k">&quot;total&quot;</span>: <span class="n">81</span>,
+    <span class="k">&quot;docs&quot;</span>: <span class="s">&quot;https://vice-city.app/developers&quot;</span>
+  }
+}</code></pre></div><button type="button" class="run" data-run="/locations/vice-city/related?fields=name&amp;limit=3&amp;lang=en">Run it with the demo key</button><div class="live" hidden></div></div></div>
+</article><article class="ep" id="e-search">
+<header><h3><span class="verb">GET</span><code>/search</code></h3><span class="plan free">Free</span></header>
+<div class="epg"><div class="ept"><p class="epd"><strong>Search everything.</strong> Searches every collection at once, in English and French, ignoring accents. Names first, then summaries and attributes.</p><dl class="pm"><div><dt><code>q</code><span>string, required</span></dt><dd>At least 2 characters.</dd></div><div><dt><code>lang</code><span>en | fr</span></dt><dd>One language as plain strings. Leave it out to get both.</dd></div><div><dt><code>limit</code><span>1–25 · 1–200</span></dt><dd>How many results to return.</dd></div><div><dt><code>fields</code><span>list</span></dt><dd>Top-level fields to keep, comma-separated: <code>fields=name,attributes</code>.</dd></div></dl></div>
+<div class="epc"><div class="code" id="c7"><div class="ch"><div class="tabs" role="tablist"><button type="button" role="tab" data-tab="curl" aria-selected="true">curl</button><button type="button" role="tab" data-tab="javascript" aria-selected="false">JavaScript</button><button type="button" role="tab" data-tab="python" aria-selected="false">Python</button></div><button type="button" class="cp" data-copy>Copy</button></div><pre data-pane="curl"><code>curl &quot;https://vice-city.app/api/v1/search?q=cheetah&amp;fields=name&amp;lang=en&quot; \
+  -H &quot;x-api-key: YOUR_KEY&quot;</code></pre><pre data-pane="javascript" hidden><code>const res = await fetch(&quot;https://vice-city.app/api/v1/search?q=cheetah&amp;fields=name&amp;lang=en&quot;, {
+  headers: { &quot;x-api-key&quot;: &quot;YOUR_KEY&quot; },
+});
+const { data, meta } = await res.json();</code></pre><pre data-pane="python" hidden><code>import requests
+
+res = requests.get(
+    &quot;https://vice-city.app/api/v1/search?q=cheetah&amp;fields=name&amp;lang=en&quot;,
+    headers={&quot;x-api-key&quot;: &quot;YOUR_KEY&quot;},
+)
+data = res.json()[&quot;data&quot;]</code></pre></div><div class="code out"><div class="ch"><span class="cl"><i class="dot"></i>200 OK · example</span></div><pre><code>{
+  <span class="k">&quot;data&quot;</span>: [
+    {
+      <span class="k">&quot;id&quot;</span>: <span class="s">&quot;vehicle.grotti-95-cheetah&quot;</span>,
+      <span class="k">&quot;type&quot;</span>: <span class="s">&quot;vehicle&quot;</span>,
+      <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Grotti '95 Cheetah&quot;</span>
+    },
+    {
+      <span class="k">&quot;id&quot;</span>: <span class="s">&quot;vehicle.grotti-cheetah-classic&quot;</span>,
+      <span class="k">&quot;type&quot;</span>: <span class="s">&quot;vehicle&quot;</span>,
+      <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Grotti Cheetah Classic&quot;</span>
+    }
+  ],
+  <span class="k">&quot;meta&quot;</span>: {
+    <span class="k">&quot;api_version&quot;</span>: <span class="s">&quot;v1&quot;</span>,
+    <span class="k">&quot;data_version&quot;</span>: <span class="s">&quot;81404497d7c3&quot;</span>,
+    <span class="k">&quot;plan&quot;</span>: <span class="s">&quot;free&quot;</span>,
+    <span class="k">&quot;total&quot;</span>: <span class="n">2</span>,
+    <span class="k">&quot;docs&quot;</span>: <span class="s">&quot;https://vice-city.app/developers&quot;</span>
+  }
+}</code></pre></div><button type="button" class="run" data-run="/search?q=cheetah&amp;fields=name&amp;lang=en">Run it with the demo key</button><div class="live" hidden></div></div></div>
+</article><h3 class="egrp">Discovery</h3><article class="ep" id="e-types">
+<header><h3><span class="verb">GET</span><code>/types</code></h3><span class="plan free">Free</span></header>
+<div class="epg"><div class="ept"><p class="epd"><strong>List collections and their fields.</strong> Returns every collection with its entry count and the attributes of its type. Read it at startup and your code picks up new collections (missions, collectibles…) on its own.</p><dl class="pm"><div><dt><code>lang</code><span>en | fr</span></dt><dd>One language as plain strings. Leave it out to get both.</dd></div></dl><p class="hint">The example shows one collection out of 15.</p></div>
+<div class="epc"><div class="code" id="c9"><div class="ch"><div class="tabs" role="tablist"><button type="button" role="tab" data-tab="curl" aria-selected="true">curl</button><button type="button" role="tab" data-tab="javascript" aria-selected="false">JavaScript</button><button type="button" role="tab" data-tab="python" aria-selected="false">Python</button></div><button type="button" class="cp" data-copy>Copy</button></div><pre data-pane="curl"><code>curl &quot;https://vice-city.app/api/v1/types?lang=en&quot; \
+  -H &quot;x-api-key: YOUR_KEY&quot;</code></pre><pre data-pane="javascript" hidden><code>const res = await fetch(&quot;https://vice-city.app/api/v1/types?lang=en&quot;, {
+  headers: { &quot;x-api-key&quot;: &quot;YOUR_KEY&quot; },
+});
+const { data, meta } = await res.json();</code></pre><pre data-pane="python" hidden><code>import requests
+
+res = requests.get(
+    &quot;https://vice-city.app/api/v1/types?lang=en&quot;,
+    headers={&quot;x-api-key&quot;: &quot;YOUR_KEY&quot;},
+)
+data = res.json()[&quot;data&quot;]</code></pre></div><div class="code out"><div class="ch"><span class="cl"><i class="dot"></i>200 OK · example</span></div><pre><code>{
+  <span class="k">&quot;data&quot;</span>: [
+    {
+      <span class="k">&quot;name&quot;</span>: <span class="s">&quot;weapons&quot;</span>,
+      <span class="k">&quot;type&quot;</span>: <span class="s">&quot;weapon&quot;</span>,
+      <span class="k">&quot;title&quot;</span>: <span class="s">&quot;Weapons&quot;</span>,
+      <span class="k">&quot;count&quot;</span>: <span class="n">37</span>,
+      <span class="k">&quot;attributes&quot;</span>: {
+        <span class="k">&quot;category&quot;</span>: {
+          <span class="k">&quot;type&quot;</span>: <span class="s">&quot;text&quot;</span>
+        },
+        <span class="k">&quot;real_model&quot;</span>: {
+          <span class="k">&quot;type&quot;</span>: <span class="s">&quot;text&quot;</span>
+        },
+        <span class="k">&quot;seen_in&quot;</span>: {
+          <span class="k">&quot;type&quot;</span>: <span class="s">&quot;text&quot;</span>
+        }
+      },
+      <span class="k">&quot;href&quot;</span>: <span class="s">&quot;https://vice-city.app/api/v1/weapons&quot;</span>
+    }
+  ],
+  <span class="k">&quot;meta&quot;</span>: {
+    <span class="k">&quot;api_version&quot;</span>: <span class="s">&quot;v1&quot;</span>,
+    <span class="k">&quot;data_version&quot;</span>: <span class="s">&quot;81404497d7c3&quot;</span>,
+    <span class="k">&quot;plan&quot;</span>: <span class="s">&quot;free&quot;</span>,
+    <span class="k">&quot;docs&quot;</span>: <span class="s">&quot;https://vice-city.app/developers&quot;</span>
+  }
+}</code></pre></div><button type="button" class="run" data-run="/types?lang=en">Run it with the demo key</button><div class="live" hidden></div></div></div>
+</article><article class="ep" id="e-game">
+<header><h3><span class="verb">GET</span><code>/game</code></h3><span class="plan free">Free</span></header>
+<div class="epg"><div class="ept"><p class="epd"><strong>Get the game facts.</strong> Release date, platforms, developer and publisher.</p><dl class="pm"><div><dt><code>lang</code><span>en | fr</span></dt><dd>One language as plain strings. Leave it out to get both.</dd></div></dl></div>
+<div class="epc"><div class="code" id="c11"><div class="ch"><div class="tabs" role="tablist"><button type="button" role="tab" data-tab="curl" aria-selected="true">curl</button><button type="button" role="tab" data-tab="javascript" aria-selected="false">JavaScript</button><button type="button" role="tab" data-tab="python" aria-selected="false">Python</button></div><button type="button" class="cp" data-copy>Copy</button></div><pre data-pane="curl"><code>curl &quot;https://vice-city.app/api/v1/game?lang=en&quot; \
+  -H &quot;x-api-key: YOUR_KEY&quot;</code></pre><pre data-pane="javascript" hidden><code>const res = await fetch(&quot;https://vice-city.app/api/v1/game?lang=en&quot;, {
+  headers: { &quot;x-api-key&quot;: &quot;YOUR_KEY&quot; },
+});
+const { data, meta } = await res.json();</code></pre><pre data-pane="python" hidden><code>import requests
+
+res = requests.get(
+    &quot;https://vice-city.app/api/v1/game?lang=en&quot;,
+    headers={&quot;x-api-key&quot;: &quot;YOUR_KEY&quot;},
+)
+data = res.json()[&quot;data&quot;]</code></pre></div><div class="code out"><div class="ch"><span class="cl"><i class="dot"></i>200 OK · example</span></div><pre><code>{
+  <span class="k">&quot;data&quot;</span>: {
+    <span class="k">&quot;title&quot;</span>: <span class="s">&quot;Grand Theft Auto VI&quot;</span>,
+    <span class="k">&quot;developer&quot;</span>: <span class="s">&quot;Rockstar Games&quot;</span>,
+    <span class="k">&quot;publisher&quot;</span>: <span class="s">&quot;Take-Two Interactive&quot;</span>,
+    <span class="k">&quot;release_date&quot;</span>: <span class="s">&quot;2026-11-19&quot;</span>,
+    <span class="k">&quot;platforms&quot;</span>: [
+      <span class="s">&quot;PlayStation 5&quot;</span>,
+      <span class="s">&quot;Xbox Series X|S&quot;</span>
+    ],
+    <span class="k">&quot;setting&quot;</span>: <span class="s">&quot;The state of Leonida, home of Vice City&quot;</span>,
+    <span class="k">&quot;official_site&quot;</span>: <span class="s">&quot;https://www.rockstargames.com/VI&quot;</span>
+  },
+  <span class="k">&quot;meta&quot;</span>: {
+    <span class="k">&quot;api_version&quot;</span>: <span class="s">&quot;v1&quot;</span>,
+    <span class="k">&quot;data_version&quot;</span>: <span class="s">&quot;81404497d7c3&quot;</span>,
+    <span class="k">&quot;plan&quot;</span>: <span class="s">&quot;free&quot;</span>,
+    <span class="k">&quot;docs&quot;</span>: <span class="s">&quot;https://vice-city.app/developers&quot;</span>
+  }
+}</code></pre></div><button type="button" class="run" data-run="/game?lang=en">Run it with the demo key</button><div class="live" hidden></div></div></div>
+</article><h3 class="egrp">Developer plan</h3><article class="ep" id="e-map">
+<header><h3><span class="verb">GET</span><code>/map/{layer}</code></h3><span class="plan dev">Developer</span></header>
+<div class="epg"><div class="ept"><p class="epd"><strong>Get a map layer.</strong> GeoJSON for the map of Leonida. <code>districts</code> has 109 outlines, <code>landmarks</code> has 3,659 points with tags and their real-world counterpart.</p><dl class="pm"><div><dt><code>layer</code><span>districts | landmarks</span></dt><dd>In the path.</dd></div><div><dt><code>bbox</code><span>minX,minY,maxX,maxY</span></dt><dd>Only features touching this box, in game units.</dd></div><div><dt><code>tag</code><span>string</span></dt><dd>Landmarks only: <code>tag=hotel</code>.</dd></div></dl><p class="hint">Coordinates are in-game units (x east, y north), not latitude and longitude. This layer comes from the gtadb.org community project (CC BY 4.0): it is not confirmed by Rockstar.</p></div>
+<div class="epc"><div class="code" id="c13"><div class="ch"><div class="tabs" role="tablist"><button type="button" role="tab" data-tab="curl" aria-selected="true">curl</button><button type="button" role="tab" data-tab="javascript" aria-selected="false">JavaScript</button><button type="button" role="tab" data-tab="python" aria-selected="false">Python</button></div><button type="button" class="cp" data-copy>Copy</button></div><pre data-pane="curl"><code>curl &quot;https://vice-city.app/api/v1/map/districts?bbox=0,0,2000,3000&quot; \
+  -H &quot;x-api-key: YOUR_KEY&quot;</code></pre><pre data-pane="javascript" hidden><code>const res = await fetch(&quot;https://vice-city.app/api/v1/map/districts?bbox=0,0,2000,3000&quot;, {
+  headers: { &quot;x-api-key&quot;: &quot;YOUR_KEY&quot; },
+});
+const { data, meta } = await res.json();</code></pre><pre data-pane="python" hidden><code>import requests
+
+res = requests.get(
+    &quot;https://vice-city.app/api/v1/map/districts?bbox=0,0,2000,3000&quot;,
+    headers={&quot;x-api-key&quot;: &quot;YOUR_KEY&quot;},
+)
+data = res.json()[&quot;data&quot;]</code></pre></div><div class="code out"><div class="ch"><span class="cl"><i class="dot"></i>200 OK · example</span></div><pre><code>{
+  <span class="k">&quot;type&quot;</span>: <span class="s">&quot;FeatureCollection&quot;</span>,
+  <span class="k">&quot;crs&quot;</span>: <span class="s">&quot;gta6-world (game units, x east, y north)&quot;</span>,
+  <span class="k">&quot;features&quot;</span>: [
+    {
+      <span class="k">&quot;type&quot;</span>: <span class="s">&quot;Feature&quot;</span>,
+      <span class="k">&quot;id&quot;</span>: <span class="s">&quot;district.ky01&quot;</span>,
+      <span class="k">&quot;bbox&quot;</span>: [
+        <span class="n">-9707.6</span>,
+        <span class="n">955.6</span>,
+        <span class="n">-6684.4</span>,
+        <span class="n">4479.8</span>
+      ],
+      <span class="k">&quot;properties&quot;</span>: {
+        <span class="k">&quot;code&quot;</span>: <span class="s">&quot;KY01&quot;</span>,
+        <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Sandbars &amp; Crude Islands&quot;</span>,
+        <span class="k">&quot;county&quot;</span>: <span class="s">&quot;Kelly County&quot;</span>,
+        <span class="k">&quot;reliability&quot;</span>: <span class="s">&quot;community&quot;</span>
+      },
+      <span class="k">&quot;geometry&quot;</span>: {
+        <span class="k">&quot;type&quot;</span>: <span class="s">&quot;Polygon&quot;</span>,
+        <span class="k">&quot;coordinates&quot;</span>: [
+          [
+            [
+              <span class="n">-7299.5</span>,
+              <span class="n">955.6</span>
+            ],
+            [
+              <span class="n">-7297.2</span>,
+              <span class="n">980.4</span>
+            ],
+            [
+              <span class="n">-7296.7</span>,
+              <span class="n">1005.2</span>
+            ],
+            <span class="s">&quot;…&quot;</span>
+          ]
+        ]
+      }
+    }
+  ],
+  <span class="k">&quot;meta&quot;</span>: {
+    <span class="k">&quot;api_version&quot;</span>: <span class="s">&quot;v1&quot;</span>,
+    <span class="k">&quot;data_version&quot;</span>: <span class="s">&quot;81404497d7c3&quot;</span>,
+    <span class="k">&quot;plan&quot;</span>: <span class="s">&quot;developer&quot;</span>,
+    <span class="k">&quot;total&quot;</span>: <span class="n">109</span>,
+    <span class="k">&quot;docs&quot;</span>: <span class="s">&quot;https://vice-city.app/developers&quot;</span>
+  }
+}</code></pre></div><div class="live" hidden></div></div></div>
+</article><article class="ep" id="e-changes">
+<header><h3><span class="verb">GET</span><code>/changes</code></h3><span class="plan dev">Developer</span></header>
+<div class="epg"><div class="ept"><p class="epd"><strong>Get what changed.</strong> Entries created, edited or removed since a date. Call it once a day to keep a local copy in sync without downloading everything again.</p><dl class="pm"><div><dt><code>since</code><span>date, required</span></dt><dd>YYYY-MM-DD</dd></div><div><dt><code>lang</code><span>en | fr</span></dt><dd>One language as plain strings. Leave it out to get both.</dd></div><div><dt><code>fields</code><span>list</span></dt><dd>Top-level fields to keep, comma-separated: <code>fields=name,attributes</code>.</dd></div></dl></div>
+<div class="epc"><div class="code" id="c15"><div class="ch"><div class="tabs" role="tablist"><button type="button" role="tab" data-tab="curl" aria-selected="true">curl</button><button type="button" role="tab" data-tab="javascript" aria-selected="false">JavaScript</button><button type="button" role="tab" data-tab="python" aria-selected="false">Python</button></div><button type="button" class="cp" data-copy>Copy</button></div><pre data-pane="curl"><code>curl &quot;https://vice-city.app/api/v1/changes?since=2026-11-19&amp;fields=name&amp;lang=en&quot; \
+  -H &quot;x-api-key: YOUR_KEY&quot;</code></pre><pre data-pane="javascript" hidden><code>const res = await fetch(&quot;https://vice-city.app/api/v1/changes?since=2026-11-19&amp;fields=name&amp;lang=en&quot;, {
+  headers: { &quot;x-api-key&quot;: &quot;YOUR_KEY&quot; },
+});
+const { data, meta } = await res.json();</code></pre><pre data-pane="python" hidden><code>import requests
+
+res = requests.get(
+    &quot;https://vice-city.app/api/v1/changes?since=2026-11-19&amp;fields=name&amp;lang=en&quot;,
+    headers={&quot;x-api-key&quot;: &quot;YOUR_KEY&quot;},
+)
+data = res.json()[&quot;data&quot;]</code></pre></div><div class="code out"><div class="ch"><span class="cl"><i class="dot"></i>200 OK · example</span></div><pre><code>{
+  <span class="k">&quot;data&quot;</span>: {
+    <span class="k">&quot;created&quot;</span>: [
+      {
+        <span class="k">&quot;id&quot;</span>: <span class="s">&quot;character.jason-duval&quot;</span>,
+        <span class="k">&quot;type&quot;</span>: <span class="s">&quot;character&quot;</span>,
+        <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Jason Duval&quot;</span>
+      }
+    ],
+    <span class="k">&quot;updated&quot;</span>: [],
+    <span class="k">&quot;removed&quot;</span>: []
+  },
+  <span class="k">&quot;meta&quot;</span>: {
+    <span class="k">&quot;api_version&quot;</span>: <span class="s">&quot;v1&quot;</span>,
+    <span class="k">&quot;data_version&quot;</span>: <span class="s">&quot;81404497d7c3&quot;</span>,
+    <span class="k">&quot;plan&quot;</span>: <span class="s">&quot;developer&quot;</span>,
+    <span class="k">&quot;since&quot;</span>: <span class="s">&quot;2026-11-19&quot;</span>,
+    <span class="k">&quot;total&quot;</span>: <span class="n">1</span>,
+    <span class="k">&quot;docs&quot;</span>: <span class="s">&quot;https://vice-city.app/developers&quot;</span>
+  }
+}</code></pre></div><div class="live" hidden></div></div></div>
+</article><article class="ep" id="e-export">
+<header><h3><span class="verb">GET</span><code>/export/{collection}</code></h3><span class="plan dev">Developer</span></header>
+<div class="epg"><div class="ept"><p class="epd"><strong>Export a collection.</strong> The whole collection in one call, as NDJSON: one JSON entry per line, easy to stream into a database.</p><dl class="pm"><div><dt><code>lang</code><span>en | fr</span></dt><dd>One language as plain strings. Leave it out to get both.</dd></div></dl><p class="hint">The response is <code>application/x-ndjson</code>. The example shows one line, pretty-printed.</p></div>
+<div class="epc"><div class="code" id="c17"><div class="ch"><div class="tabs" role="tablist"><button type="button" role="tab" data-tab="curl" aria-selected="true">curl</button><button type="button" role="tab" data-tab="javascript" aria-selected="false">JavaScript</button><button type="button" role="tab" data-tab="python" aria-selected="false">Python</button></div><button type="button" class="cp" data-copy>Copy</button></div><pre data-pane="curl"><code>curl &quot;https://vice-city.app/api/v1/export/vehicles?lang=en&quot; \
+  -H &quot;x-api-key: YOUR_KEY&quot;</code></pre><pre data-pane="javascript" hidden><code>const res = await fetch(&quot;https://vice-city.app/api/v1/export/vehicles?lang=en&quot;, {
+  headers: { &quot;x-api-key&quot;: &quot;YOUR_KEY&quot; },
+});
+const { data, meta } = await res.json();</code></pre><pre data-pane="python" hidden><code>import requests
+
+res = requests.get(
+    &quot;https://vice-city.app/api/v1/export/vehicles?lang=en&quot;,
+    headers={&quot;x-api-key&quot;: &quot;YOUR_KEY&quot;},
+)
+data = res.json()[&quot;data&quot;]</code></pre></div><div class="code out"><div class="ch"><span class="cl"><i class="dot"></i>200 OK · example</span></div><pre><code>{
+  <span class="k">&quot;id&quot;</span>: <span class="s">&quot;vehicle.grotti-95-cheetah&quot;</span>,
+  <span class="k">&quot;type&quot;</span>: <span class="s">&quot;vehicle&quot;</span>,
+  <span class="k">&quot;name&quot;</span>: <span class="s">&quot;Grotti '95 Cheetah&quot;</span>,
+  <span class="k">&quot;attributes&quot;</span>: {
+    <span class="k">&quot;manufacturer&quot;</span>: <span class="s">&quot;Grotti&quot;</span>,
+    <span class="k">&quot;model&quot;</span>: <span class="s">&quot;'95 Cheetah&quot;</span>,
+    <span class="k">&quot;class&quot;</span>: <span class="s">&quot;Sports&quot;</span>,
+    <span class="k">&quot;inspiration&quot;</span>: <span class="s">&quot;Ferrari&quot;</span>,
+    <span class="k">&quot;seen_in&quot;</span>: <span class="s">&quot;Ultimate Edition&quot;</span>
+  },
+  <span class="k">&quot;reliability&quot;</span>: <span class="s">&quot;official&quot;</span>
+}</code></pre></div><div class="live" hidden></div></div></div>
+</article></section>
+<aside class="ad" aria-label="Advertisement"><span class="adl">Advertisement</span><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2046602277842498" data-ad-slot="7948800993" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></aside>
+<section id="cache"><h2 class="display">Cach<em data-vc-nt="ing">ing</em></h2>
+<p>The data only changes when we publish an update, so cache it. Every answer has an <code>ETag</code>: send it back in <code>If-None-Match</code> and you get an empty <code>304</code> when nothing changed. <code>meta.data_version</code> changes with every update of the dataset.</p>
+<div class="code" id="c27"><div class="ch"><div class="tabs" role="tablist"><span class="cl">curl</span></div><button type="button" class="cp" data-copy>Copy</button></div><pre data-pane=""><code>curl &quot;https://vice-city.app/api/v1/weapons&quot; \
+  -H &quot;x-api-key: YOUR_KEY&quot; \
+  -H &#x27;If-None-Match: &quot;ArBkgtbVqGOZaazeWq6yboZlsDE&quot;&#x27;</code></pre></div>
+<p class="hint">A 304 still counts as a request. Check <code>data_version</code> with <code>/game</code>, the lightest call, before refreshing a whole copy.</p></section>
+
+<section id="errors"><h2 class="display">Err<em data-vc-nt="ors">ors</em></h2>
+<p>Errors follow RFC 9457 (<code>application/problem+json</code>). Branch on <code>code</code>, which never changes, and show <code>detail</code>, which says what to do. Give us <code>instance</code> if you write about a problem.</p>
+<div class="code out err"><div class="ch"><span class="cl"><i class="dot"></i>429 Too Many Requests</span></div><pre><code>{
+  <span class="k">&quot;type&quot;</span>: <span class="s">&quot;https://vice-city.app/developers#errors&quot;</span>,
+  <span class="k">&quot;title&quot;</span>: <span class="s">&quot;Daily limit reached&quot;</span>,
+  <span class="k">&quot;status&quot;</span>: <span class="n">429</span>,
+  <span class="k">&quot;detail&quot;</span>: <span class="s">&quot;This key allows 5 requests a day on this API. The counter resets at 00:00 UTC.&quot;</span>,
+  <span class="k">&quot;code&quot;</span>: <span class="s">&quot;rate_limited&quot;</span>,
+  <span class="k">&quot;instance&quot;</span>: <span class="s">&quot;cdg1::abcde-1794845763624&quot;</span>
+}</code></pre></div>
+<dl class="pm wide errs"><div><dt><b class="st s4">400</b></dt><dd><code>invalid_query</code> <code>invalid_sort</code> <code>invalid_cursor</code> <code>invalid_bbox</code> <code>invalid_since</code> <code>invalid_lang</code><br>A parameter is wrong. <code>detail</code> says which one and gives a valid example.</dd></div><div><dt><b class="st s4">401</b></dt><dd><code>missing_api_key</code> <code>invalid_api_key</code><br>No key, or a key we don’t know.</dd></div><div><dt><b class="st s4">403</b></dt><dd><code>plan_upgrade_required</code><br>A Developer endpoint called with a Free key.</dd></div><div><dt><b class="st s4">403</b></dt><dd><code>subscription_inactive</code> <code>demo_key</code><br>The subscription behind the key has ended, or the demo key was asked for a second page.</dd></div><div><dt><b class="st s4">404</b></dt><dd><code>unknown_collection</code> <code>not_found</code> <code>unknown_layer</code><br>Nothing at this address.</dd></div><div><dt><b class="st s4">429</b></dt><dd><code>rate_limited</code><br>Daily limit reached. <code>Retry-After</code> gives the seconds until 00:00 UTC.</dd></div><div><dt><b class="st s5">503</b></dt><dd><code>keys_unavailable</code><br>Keys can’t be checked right now. Retry in a minute.</dd></div></dl></section>
+
+<section id="terms"><h2 class="display">Terms of <em data-vc-nt="use">use</em></h2>
+<ul class="tl2">
+<li>With a Free key, the use stays non-commercial and shows a visible “Data: vice-city.app” credit with a link.</li>
+<li>A Developer key allows commercial use. The credit is appreciated, not required.</li>
+<li>Map data must also credit gtadb.org (CC BY 4.0).</li>
+<li>Don’t resell or republish the exports as they are.</li>
+<li>The API serves no image and no leaked content.</li>
+</ul>
+<p class="dfine">vice-city.app is not affiliated with, endorsed by or sponsored by Rockstar Games or Take-Two Interactive. A question or a bug: <a href="mailto:contact@lucasbonomi.com">contact@lucasbonomi.com</a>.</p></section>
+
+</div></div>
+<aside class="ad" aria-label="Advertisement"><span class="adl">Advertisement</span><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2046602277842498" data-ad-slot="7948800993" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></aside>
+</main>
+<script>window.VPDOCS={base:"https://vice-city.app/api/v1",demo:"vc_demo",copy:"Copy",copied:"Copied",running:"Calling the API\u2026",failed:"The call failed. Check your connection and try again.",live:"live answer"}</script>
+<script src="/assets/docs.js?v=1795102706" defer></script>
+<div class="mq " aria-hidden="true"><div><span>Everything in Excess</span><i>★</i><span>Gateway to Paradise</span><i>★</i><span>Live Hard</span><i>★</i><span>Wild, Wild Country</span><i>★</i><span>Only in Leonida</span><i>★</i><span>Everything in Excess</span><i>★</i><span>Gateway to Paradise</span><i>★</i><span>Live Hard</span><i>★</i><span>Wild, Wild Country</span><i>★</i><span>Only in Leonida</span><i>★</i><span>Everything in Excess</span><i>★</i><span>Gateway to Paradise</span><i>★</i><span>Live Hard</span><i>★</i><span>Wild, Wild Country</span><i>★</i><span>Only in Leonida</span><i>★</i><span>Everything in Excess</span><i>★</i><span>Gateway to Paradise</span><i>★</i><span>Live Hard</span><i>★</i><span>Wild, Wild Country</span><i>★</i><span>Only in Leonida</span><i>★</i></div></div>
+<footer class="foot">
+  <div class="sun" aria-hidden="true"></div>
+  <div class="in vc-discord-band"><img class="vc-discord-bg" src="/img/discord/vice-city-discord-band.webp" alt="" width="1600" height="480" loading="lazy" decoding="async"><img class="vc-discord-av" src="/img/discord/vice-city-discord-icon.webp" alt="" width="64" height="64" loading="lazy" decoding="async"><p><b>Discord</b>The Vice City community: map finds, secrets, radio and GTA 6 news with other players.</p><div class="vc-discord-acts"><a class="pill vc-discord-cta" href="https://discord.gg/WBMhgrw5X4" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.3 4.4A19.6 19.6 0 0 0 15.4 3l-.6 1.3a18.2 18.2 0 0 0-5.6 0L8.6 3a19.5 19.5 0 0 0-4.9 1.5C.6 9.1-.3 13.7.1 18.2a19.7 19.7 0 0 0 6 3l1.3-2.1a12.8 12.8 0 0 1-2-1l.5-.4a14 14 0 0 0 12.2 0l.5.4c-.6.4-1.3.7-2 1l1.3 2.1a19.6 19.6 0 0 0 6-3c.5-5.2-.9-9.8-3.6-13.8zM8 15.5c-1.2 0-2.2-1.1-2.2-2.4S6.8 10.7 8 10.7s2.2 1.1 2.2 2.4-1 2.4-2.2 2.4zm8 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4z"/></svg>Join the Discord</a><a class="pill ghost vc-x-cta" href="https://x.com/ViceCityApp" target="_blank" rel="noopener me"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M17.75 3h3.07l-6.71 7.67L22 21h-6.18l-4.84-6.33L5.44 21H2.37l7.18-8.2L2 3h6.34l4.37 5.78L17.75 3zm-1.08 16.2h1.7L7.4 4.73H5.58L16.67 19.2z"/></svg>@ViceCityApp</a></div></div>
+  <div class="in fgrid">
+    <div><a class="mark" href="/">vice-city.app</a><p>The unofficial GTA 6 companion.<br>Updated daily until launch, live from November 19.</p></div>
+    <div><h2>Database</h2><a href="/map">Map</a><a href="/characters">Characters</a><a href="/locations">Locations</a><a href="/vehicles">Vehicles</a><a href="/weapons">Weapons</a><a href="/activities">Activities</a><a href="/radio">Radio</a><a href="/gallery">Gallery</a></div>
+    <div><h2>Launch guide</h2><a href="/release-date">Release date</a><a href="/editions">Editions</a><a href="/trailers">Trailers</a><a href="/cheats">Cheats</a><a href="/missions">Missions</a><a href="/100-percent">100% checklist</a><a href="/trophies">Trophies</a><a href="/secrets">Secrets</a><a href="/newsroom">News</a></div>
+    <div><h2>Site</h2><a href="/">Home</a><a href="/about">About</a><a href="/editorial-policy">Editorial policy</a><a href="/developers">GTA 6 API</a><a href="/privacy">Privacy</a><a href="/contact">Contact</a><a href="https://discord.gg/WBMhgrw5X4" target="_blank" rel="noopener">Discord</a><a href="https://x.com/ViceCityApp" target="_blank" rel="noopener me">X (Twitter)</a><button type="button" class="vc-cookiebtn" data-vc-consent>Cookie settings</button></div>
+    <div><h2>Language</h2><a href="/developers" hreflang="en" lang="en" data-setlang="en" aria-current=true>English</a><a href="/fr/developpeurs" hreflang="fr" lang="fr" data-setlang="fr">Français</a></div>
+  </div>
+  <p class="in legal">vice-city.app is an unofficial fan site. It is not affiliated with, endorsed by or sponsored by Rockstar Games or Take-Two Interactive. Grand Theft Auto and all related names, logos and images are trademarks and © of their respective owners. Official images © Rockstar Games, used for illustration and commentary.</p>
+  <div class="wordmark" aria-hidden="true">vice-city.app</div>
+</footer>
+<dialog class="cmd vc-sr" id="cmd" aria-label="Search">
+  <form method="dialog" class="cmdbar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><button type="button" class="vc-sr-scope" hidden></button><input type="search" id="cmdq" placeholder="Search characters, places, vehicles…" autocomplete="off" aria-label="Search" aria-controls="cmdr"><button class="x" aria-label="Close">Esc</button></form>
+  <div class="vc-sr-body">
+    <nav class="vc-sr-nav" aria-label="Browse"></nav>
+    <div class="vc-sr-grip" data-col="nav" role="separator" tabindex="0" aria-orientation="vertical" aria-label="Resize the column"></div>
+    <div class="vc-sr-main"><div id="cmdr" role="listbox" aria-label="results"></div><p class="cmdh" id="cmdh" aria-live="polite">Type to search the whole database</p></div>
+    <div class="vc-sr-grip" data-col="side" role="separator" tabindex="0" aria-orientation="vertical" aria-label="Resize the column"></div>
+    <aside class="vc-sr-side">
+      <div class="vc-sr-home"><h3 class="vc-sr-t">Quick actions</h3>
+        <div class="vc-sr-acts"><div class="vc-sr-theme" role="radiogroup" aria-label="Theme"><button type="button" aria-checked="false" role="radio" data-vc-theme="light"><svg class="vc-i-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span>Light</span></button><button type="button" aria-checked="false" role="radio" data-vc-theme="dark"><svg class="vc-i-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><span>Dark</span></button><button type="button" aria-checked="false" role="radio" data-vc-theme="system"><svg class="vc-i-system" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg><span>System</span></button></div>
+        <button class="vc-sr-act vc-motion" type="button" data-vc-motion aria-pressed="true" data-label="Animations" data-on="On" data-off="Off" aria-label="Animations"><svg class="vc-m-on" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15v4M17 17h4M5 3v3M3.5 4.5h3"/></svg><svg class="vc-m-off" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6v12M15 6v12"/></svg>Animations</button>
+        <button class="vc-sr-act" type="button" data-vc-sr-radio><svg class="vs-ico" aria-hidden="true"><use href="#vs-radio"/></svg>Web radio</button></div>
+        <h3 class="vc-sr-t">Picked at random<button type="button" class="vc-sr-dice" data-vc-sr-dice aria-label="Surprise me" title="Surprise me">⚄</button></h3><div class="vc-sr-picks"></div>
+        <p class="vc-sr-tip">Press / anywhere to search.</p></div>
+    </aside>
+  </div>
+  <footer class="vc-sr-foot"><span><kbd>↑</kbd><kbd>↓</kbd>Navigate</span><span><kbd>↵</kbd>Open</span><span class="vc-sr-ktab"><kbd>Tab</kbd>Category</span><span><kbd>Esc</kbd>Close</span></footer>
+</dialog>
+<dialog class="dlg" id="dlg">
+  <div class="dimg"><img alt=""><button class="p" type="button" aria-label="Previous">‹</button><button class="n" type="button" aria-label="Next">›</button><span class="k"></span><span class="vc-credit">© Rockstar Games</span></div>
+  <div class="dbody" tabindex="-1"></div>
+  <form method="dialog"><button class="x" aria-label="Close">×</button></form>
+</dialog>
+<div class="consent" hidden role="dialog" aria-label="Audience measurement"><p>We use Google Analytics to count visits and improve the site. OK with you? <a href="/privacy">Privacy</a></p><div><button type="button" class="pill ghost sm" data-c="no">Decline</button><button type="button" class="pill sm" data-c="yes">Accept</button></div></div>
+<div class="langtip" hidden data-tips="{&quot;fr&quot;: [&quot;/fr/developpeurs&quot;, &quot;Ce site existe aussi en français.&quot;, &quot;Passer en français&quot;]}"><span></span><a class="pill sm" href="/"></a><button type="button" aria-label="Close">×</button></div>
+<script>window.VP={sr:{"db": "The database", "lead": "{n} entries: characters, places, vehicles, weapons, missions and more.", "explore": "Explore the site", "browse": "Browse", "all": "Everything", "recent": "Recent searches", "clear": "Clear", "tryq": "Try", "random": "Surprise me", "open": "Open", "more": "{n} more in {c}", "fuzzy": "No exact match. Closest results:", "actions": "Quick actions", "radio": "Web radio", "picks": "Picked at random", "nav": "Navigate", "go": "Open", "scope": "Category", "resize": "Resize the column", "tip": "Press / anywhere to search.", "try": ["Jason", "Lucia", "Vice Beach", "Port Gellhorn", "Grotti", "Kalaga", "Boobie", "Pegassi"], "onmap": "See on map", "copy": "Copy link", "copied": "Link copied", "entries": "entries", "close": "Close", "dbh": "Database", "siteh": "Site", "db_c": "vice-city.app"},lang:"en",ph:{"map": "leonida-keys-01", "characters": "jason-and-lucia-01", "locations": "vice-city-10", "vehicles": "ultimate-edition-grotti-cheetah-01", "weapons": "ultimate-edition-weapon-variants-01", "activities": "leonida-keys-05", "radio": "cocoteo-background", "gallery": "vice-city-01", "release": "jason-lucia-rooftop-landscape", "editions": "vintage-vice-city-pack-01", "trailers": "jason-lucia-lock-and-load-landscape", "newsroom": "vice-city-15", "secrets": "grassrivers-08", "cheats": "jason-duval-05", "missions": "jason-and-lucia-05", "checklist": "leonida-keys-03", "trophies": "jason-and-lucia-12"},noresult:"No results. Try another word.",hint:"Type to search the whole database",copied:"Link copied",copy:"Copy link",results:"results",result:"result",days:"days",hours:"hours",mins:"min",secs:"sec",outnow:"Out now",v:"1795102706"}</script>
+<script src="/assets/site.js?v=1795102706" defer></script>
+</body></html>

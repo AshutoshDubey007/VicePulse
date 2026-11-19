@@ -1,0 +1,6 @@
+import React from 'react';
+import { NotificationSettingsClient } from './NotificationSettingsClient';
+
+export default function NotificationSettingsPage() {
+  return <NotificationSettingsClient />;
+}

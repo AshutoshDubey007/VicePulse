@@ -1,0 +1,278 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Clean Dark Editorial GTA VI Palette */
+  --ink: #111114;
+  --surface: #1C1B20;
+  --cream: #F4F0E8;
+  --muted: #9B969F;
+  --hot-pink: #FF4F91;
+  --orange: #FF8247;
+  --sun: #FFD45A;
+  --teal: #19C7B8;
+  --sand: #FFB347;
+
+  /* Verification Stamp Colors */
+  --stamp-unverified: #9B969F;
+  --stamp-under-investigation: #FF8247;
+  --stamp-community-verified: #19C7B8;
+  --stamp-personally-verified: #FF4F91;
+  --stamp-disputed: #EF4444;
+
+  --color-sunset: #FF8247;
+  --color-coral: #FF8247;
+  --color-vice-pink: #FF4F91;
+  --color-ocean-teal: #19C7B8;
+  --color-pale-sand: #F4F0E8;
+  --color-warm-white: #F4F0E8;
+  --color-asphalt: #111114;
+  --color-muted-gray: #9B969F;
+
+  --font-pricedown-family: var(--font-pricedown), var(--font-bowlby), 'Bowlby One', Impact, sans-serif;
+  --font-body-family: var(--font-archivo), Archivo, sans-serif;
+  --font-mono-family: var(--font-space-mono), 'Space Mono', monospace;
+}
+
+body {
+  background-color: #111114;
+  color: #F4F0E8;
+  font-family: var(--font-body-family);
+  overflow-x: hidden;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  overflow-wrap: break-word;
+  font-size-adjust: from-font;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Headings: Pricedown / Bowlby One, Uppercase, Tight Line-Height, Hard Offset Text Shadow */
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-pricedown-family);
+  text-transform: uppercase;
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: 0.02em;
+  font-size-adjust: cap-height from-font;
+}
+
+/* Mechanical hard offset text shadows */
+.text-shadow-hard {
+  text-shadow: 3px 3px 0px #1A0B2E;
+}
+
+.text-shadow-hard-lg {
+  text-shadow: 4px 4px 0px #1A0B2E;
+}
+
+.text-shadow-hard-pink {
+  text-shadow: 3px 3px 0px #FF4FA0;
+}
+
+.text-shadow-hard-orange {
+  text-shadow: 3px 3px 0px #FF7A3D;
+}
+
+.text-shadow-hard-cream {
+  text-shadow: 3px 3px 0px #FFF1DC;
+}
+
+/* Monospace data, coordinates, tags, labels */
+.font-mono, code, kbd, samp {
+  font-family: var(--font-mono-family);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Hard Edges & 3px Solid Borders */
+.border-hard {
+  border: 3px solid #1A0B2E;
+}
+
+.border-hard-cream {
+  border: 3px solid #FFF1DC;
+}
+
+.border-hard-orange {
+  border: 3px solid #FF7A3D;
+}
+
+.border-hard-pink {
+  border: 3px solid #FF4FA0;
+}
+
+.border-hard-teal {
+  border: 3px solid #19C7B8;
+}
+
+/* Hard Offset Shadows (No blur, mechanical pop) */
+.shadow-hard {
+  box-shadow: 4px 4px 0px #1A0B2E;
+}
+
+.shadow-hard-lg {
+  box-shadow: 6px 6px 0px #1A0B2E;
+}
+
+.shadow-hard-orange {
+  box-shadow: 4px 4px 0px #FF7A3D;
+}
+
+.shadow-hard-pink {
+  box-shadow: 4px 4px 0px #FF4FA0;
+}
+
+.shadow-hard-teal {
+  box-shadow: 4px 4px 0px #19C7B8;
+}
+
+.shadow-hard-sun {
+  box-shadow: 4px 4px 0px #FFE066;
+}
+
+.shadow-hard-cream {
+  box-shadow: 4px 4px 0px #FFF1DC;
+}
+
+/* Rectangular Stamp Label: 2px border, tilted -2deg, monospace text */
+.stamp-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 2px solid #1A0B2E;
+  transform: rotate(-2deg);
+  font-family: var(--font-mono-family);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.15rem 0.5rem;
+  box-shadow: 2px 2px 0px #1A0B2E;
+  border-radius: 0px;
+  user-select: none;
+}
+
+/* Sticker-style tag */
+.sticker-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 2px solid #1A0B2E;
+  font-family: var(--font-mono-family);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.5rem;
+  box-shadow: 3px 3px 0px #1A0B2E;
+  border-radius: 2px;
+}
+
+/* Mechanical Scrolling Ticker Strip */
+@keyframes tickerScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.ticker-strip-track {
+  display: flex;
+  width: max-content;
+  animation: tickerScroll 24s linear infinite;
+}
+
+.ticker-strip-track:hover {
+  animation-play-state: paused;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1A0B2E;
+  border-left: 2px solid #371E5E;
+}
+::-webkit-scrollbar-thumb {
+  background: #FF7A3D;
+  border: 2px solid #1A0B2E;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF4FA0;
+}
+
+/* Sparingly used halftone dot pattern */
+.bg-halftone {
+  background-image: radial-gradient(#FF7A3D 1px, transparent 1px);
+  background-size: 12px 12px;
+}
+
+/* Subtle vintage film / newsprint grain overlay */
+.bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* Accessible 3px Sun-Yellow Focus Ring */
+*:focus-visible {
+  outline: 3px solid #FFE066 !important;
+  outline-offset: 2px !important;
+}
+
+/* Snappy Mechanical Card Hover: Shift up-left by 3px with expanding hard shadow */
+.card-hover-snap {
+  transition: transform 120ms cubic-bezier(0, 0, 0.2, 1), box-shadow 120ms cubic-bezier(0, 0, 0.2, 1);
+}
+.card-hover-snap:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0px #1A0B2E;
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-hover-snap:hover {
+    transform: none;
+    box-shadow: 4px 4px 0px #1A0B2E;
+  }
+}
+
+
+/* Solid retro sun stripes */
+.retro-sun-band-1 { background-color: #FF4FA0; }
+.retro-sun-band-2 { background-color: #FF7A3D; }
+.retro-sun-band-3 { background-color: #FFE066; }
+
+/* Leaflet Map Flat Poster Overrides */
+.leaflet-container {
+  background-color: #1A0B2E !important;
+  font-family: var(--font-mono-family) !important;
+}
+.leaflet-bar a {
+  background-color: #FFF1DC !important;
+  color: #1A0B2E !important;
+  border: 2px solid #1A0B2E !important;
+  border-radius: 0 !important;
+  font-weight: bold !important;
+  box-shadow: 2px 2px 0px #1A0B2E !important;
+}
+.leaflet-bar a:hover {
+  background-color: #FF7A3D !important;
+  color: #FFF1DC !important;
+}
+.leaflet-popup-content-wrapper {
+  background-color: #FFF1DC !important;
+  color: #1A0B2E !important;
+  border: 3px solid #1A0B2E !important;
+  border-radius: 0px !important;
+  padding: 0 !important;
+  box-shadow: 5px 5px 0px #1A0B2E !important;
+}
+.leaflet-popup-tip {
+  background-color: #1A0B2E !important;
+  border: 2px solid #1A0B2E !important;
+}

@@ -1,0 +1,1545 @@
+
+vice-city.app API · free GTA 6 API, JSON data for developers
+Skip to content
+vice-city.app
+Map
+Guides
+Guides
+Missions
+Trophies
+100% checklist
+Cheats
+Secrets
+Activities
+World
+World
+Characters
+Locations
+Vehicles
+Weapons
+Radio
+The game
+The game
+News
+Trailers
+Gallery
+Release date
+Editions
+API
+Search
+/
+Light
+Dark
+System
+EN
+English
+Français
+Map
+Guides
+Missions
+Trophies
+100% checklist
+Cheats
+Secrets
+Activities
+World
+Characters
+Locations
+Vehicles
+Weapons
+Radio
+The game
+News
+Trailers
+Gallery
+Release date
+Editions
+About
+GTA 6 API
+Discord
+X 
+@ViceCityApp
+Animations
+Light
+Dark
+System
+Français
+This is only the start: every page gets richer as we play GTA 6, from November 19.
+Missing something?
+vice-city.app
+ / Developers
+vice-city.app
+API:
+GTA 6 data as JSON
+561 entries on Leonida’s characters, locations, vehicles, weapons, activities and radio stations, in English and French. One format for everything, a free key, and a map as GeoJSON.
+Get a free key
+Quick start
+561
+entries
+11
+collections
+EN · FR
+every text
+OpenAPI 3.1
+openapi.json
+Request
+Copy
+GET /api/v1/vehicles/grotti-95-cheetah?lang=en
+200 OK
+{
+&quot;data&quot;
+: {
+&quot;id&quot;
+: 
+&quot;vehicle.grotti-95-cheetah&quot;
+,
+&quot;type&quot;
+: 
+&quot;vehicle&quot;
+,
+&quot;name&quot;
+: 
+&quot;Grotti '95 Cheetah&quot;
+,
+&quot;attributes&quot;
+: {
+&quot;manufacturer&quot;
+: 
+&quot;Grotti&quot;
+,
+&quot;model&quot;
+: 
+&quot;'95 Cheetah&quot;
+,
+&quot;class&quot;
+: 
+&quot;Sports&quot;
+,
+&quot;inspiration&quot;
+: 
+&quot;Ferrari&quot;
+,
+&quot;seen_in&quot;
+: 
+&quot;Ultimate Edition&quot;
+    },
+&quot;relations&quot;
+: [
+      {
+&quot;rel&quot;
+: 
+&quot;manufacturer&quot;
+,
+&quot;id&quot;
+: 
+&quot;manufacturer.grotti&quot;
+,
+&quot;name&quot;
+: 
+&quot;Grotti&quot;
+      }
+    ],
+&quot;reliability&quot;
+: 
+&quot;official&quot;
+,
+&quot;url&quot;
+: 
+&quot;https://vice-city.app/vehicles/grotti-95-cheetah&quot;
+  }
+}
+Advertisement
+On this page
+Quick start
+Authentication
+Plans and limits
+Data model
+Collections
+Languages
+API reference
+/{collection}
+/{collection}/{slug}
+/{collection}/{slug}/related
+/search
+/types
+/game
+/map/{layer}
+/changes
+/export/{collection}
+Caching
+Errors
+Terms of use
+Quick 
+start
+Make a first call
+The 
+vc_demo
+ key needs no account. It returns the first 5 results of each list, which is enough to see the format.
+curl
+JavaScript
+Python
+Copy
+curl &quot;https://vice-city.app/api/v1/characters?lang=en&quot; \
+  -H &quot;x-api-key: vc_demo&quot;
+const res = await fetch(&quot;https://vice-city.app/api/v1/characters?lang=en&quot;, {
+  headers: { &quot;x-api-key&quot;: &quot;vc_demo&quot; },
+});
+const { data, meta } = await res.json();
+import requests
+res = requests.get(
+    &quot;https://vice-city.app/api/v1/characters?lang=en&quot;,
+    headers={&quot;x-api-key&quot;: &quot;vc_demo&quot;},
+)
+data = res.json()[&quot;data&quot;]
+Run it here
+Get your own key
+Sign in to your 
+MadamNazar.io account
+ and open the Developer API section. Your key starts with 
+mn_live_
+. vice-city.app is run by the same team, so the same key works on both APIs.
+Ask for what you need
+Filter, pick fields and choose a language in the URL. This returns the official sports cars, names only:
+curl
+JavaScript
+Python
+Copy
+curl &quot;https://vice-city.app/api/v1/vehicles?filter[class]=sport&amp;filter[reliability]=official&amp;fields=name&amp;lang=en&quot; \
+  -H &quot;x-api-key: YOUR_KEY&quot;
+const res = await fetch(&quot;https://vice-city.app/api/v1/vehicles?filter[class]=sport&amp;filter[reliability]=official&amp;fields=name&amp;lang=en&quot;, {
+  headers: { &quot;x-api-key&quot;: &quot;YOUR_KEY&quot; },
+});
+const { data, meta } = await res.json();
+import requests
+res = requests.get(
+    &quot;https://vice-city.app/api/v1/vehicles?filter[class]=sport&amp;filter[reliability]=official&amp;fields=name&amp;lang=en&quot;,
+    headers={&quot;x-api-key&quot;: &quot;YOUR_KEY&quot;},
+)
+data = res.json()[&quot;data&quot;]
+Authen
+tication
+Send your key with every request, in the 
+x-api-key
+ header. 
+Authorization: Bearer …
+ works too.
+Header
+Copy
+x-api-key: mn_live_xxxxxxxxxxxxxxxxxxxxxxxx
+The API accepts calls from a browser (CORS is open), but a key in front-end code is visible to everyone. Call the API from your server, or cache the answers there.
+Base URL : 
+https://vice-city.app/api/v1
+Plans and 
+limits
+Free
+€0
+To try the API and for small personal projects.
+Requests a day
+5
+Results per page
+25
+Catalogue and search
+✓
+English and French
+✓
+Map of Leonida (GeoJSON)
+–
+Change feed
+–
+Full exports (NDJSON)
+–
+Commercial use
+–
+MadamNazar.io API and Premium included
+–
+Get a free key
+Developer
+€4.99
+ a month, or €39 a year
+For apps, bots and sites that run every day.
+Requests a day
+1,000
+Results per page
+200
+Catalogue and search
+✓
+English and French
+✓
+Map of Leonida (GeoJSON)
+✓
+Change feed
+✓
+Full exports (NDJSON)
+✓
+Commercial use
+✓
+MadamNazar.io API and Premium included
+✓
+Get a Developer key
+Requests are counted per key and per day, and the counter resets at 00:00 UTC. Calls to this API and to the MadamNazar.io API are counted separately. Every answer tells you where you stand:
+Response headers
+Copy
+RateLimit-Limit: 5
+RateLimit-Remaining: 3
+RateLimit-Reset: 28412
+With 5 requests a day, a free key is for testing: ask for 25 entries per call and keep the answers. The data changes a few times a day at most.
+Advertisement
+Data 
+model
+A character, a car and a bar all have the same shape. Learn it once and every collection reads the same way, including the ones added after launch.
+id
+Stable and never reused, 
+type.slug
+. Store this one.
+name, summary
+Translated texts.
+attributes
+What is specific to the type: a vehicle’s class, a weapon’s real model. 
+/types
+ lists them.
+relations
+Typed links to other entries, with their name and address.
+reliability
+official
+ (shown or named by Rockstar), 
+press
+ or 
+community
+. Leaks and rumours are never in the API.
+verified_in_game
+Turns 
+true
+ once we have checked the entry in the game, from November 19, 2026.
+spoiler
+Story content. Left out of lists unless you send 
+spoilers=true
+.
+sources
+The pages the entry comes from.
+url
+The entry’s page on vice-city.app, to link back to.
+created_at, updated_at
+Dates, to sync with 
+/changes
+.
+Collec
+tions
+/locations
+94
+The 6 regions of Leonida, their districts and towns.
+/businesses
+69
+Bars, clubs, stores, hotels, garages and other named places.
+/characters
+66
+Protagonists, supporting cast and radio hosts shown or named officially.
+/manufacturers
+32
+In-game vehicle brands and the real-world make each one stands for.
+/vehicles
+172
+Cars, bikes, boats and aircraft, with their class and real-world inspiration.
+/weapons
+37
+Firearms, melee weapons and throwables, with the real-world model behind each one.
+/activities
+40
+Side activities and minigames shown by Rockstar or described by the press.
+/radio-stations
+22
+Stations, genres, hosts and the tracks heard so far.
+/trailers
+4
+Official trailers, their date, music and what each one revealed.
+/editions
+4
+Standard and Ultimate editions, pre-order bonuses and prices.
+/events
+21
+Key dates of the game, from early development to launch.
+Declared and empty until the game is out, then filled from the game : 
+/missions
+/collectibles
+/trophies
+/cheats
+.
+Lang
+uages
+Every translated text comes in English and French. By default you get both, which suits a bilingual app or a local copy:
+200 OK · without lang
+{
+&quot;id&quot;
+: 
+&quot;character.jason-duval&quot;
+,
+&quot;name&quot;
+: {
+&quot;en&quot;
+: 
+&quot;Jason Duval&quot;
+,
+&quot;fr&quot;
+: 
+&quot;Jason Duval&quot;
+  },
+&quot;summary&quot;
+: {
+&quot;en&quot;
+: 
+&quot;Playable protagonist. Former soldier now working for smugglers in the Keys; Brian's employee and tenant in Key Lento.&quot;
+,
+&quot;fr&quot;
+: 
+&quot;Protagoniste jouable. Ancien militaire, travaille pour des trafiquants des Keys ; employé et locataire de Brian à Key Lento.&quot;
+  }
+}
+Add 
+lang=en
+ and the same fields become plain strings:
+200 OK · lang=en
+{
+&quot;id&quot;
+: 
+&quot;character.jason-duval&quot;
+,
+&quot;name&quot;
+: 
+&quot;Jason Duval&quot;
+,
+&quot;summary&quot;
+: 
+&quot;Playable protagonist. Former soldier now working for smugglers in the Keys; Brian's employee and tenant in Key Lento.&quot;
+}
+API 
+reference
+All endpoints are 
+GET
+ and start with 
+https://vice-city.app/api/v1
+. Answers are JSON with a 
+data
+ field and a 
+meta
+ field. The Run buttons call the live API with the demo key.
+Catalogue
+GET
+/{collection}
+Free
+List a collection.
+ Returns the entries of one collection, sorted by name, with filters and paging.
+lang
+en | fr
+One language as plain strings. Leave it out to get both.
+limit
+1–25 · 1–200
+Page size. Up to 25 with a Free key, 200 with a Developer key.
+cursor
+string
+Value of 
+links.next_cursor
+ from the previous page.
+filter[…]
+string
+Keep entries matching a field, an attribute or a relation: 
+filter[class]=sport
+, 
+filter[reliability]=official
+, 
+filter[region]=vice-city
+. Repeat to combine.
+q
+string
+Keep entries whose name or summary contains this text.
+sort
+name | updated_at | created_at
+Prefix with 
+-
+ for descending order.
+fields
+list
+Top-level fields to keep, comma-separated: 
+fields=name,attributes
+.
+curl
+JavaScript
+Python
+Copy
+curl &quot;https://vice-city.app/api/v1/vehicles?filter[class]=sport&amp;fields=name&amp;limit=3&amp;lang=en&quot; \
+  -H &quot;x-api-key: YOUR_KEY&quot;
+const res = await fetch(&quot;https://vice-city.app/api/v1/vehicles?filter[class]=sport&amp;fields=name&amp;limit=3&amp;lang=en&quot;, {
+  headers: { &quot;x-api-key&quot;: &quot;YOUR_KEY&quot; },
+});
+const { data, meta } = await res.json();
+import requests
+res = requests.get(
+    &quot;https://vice-city.app/api/v1/vehicles?filter[class]=sport&amp;fields=name&amp;limit=3&amp;lang=en&quot;,
+    headers={&quot;x-api-key&quot;: &quot;YOUR_KEY&quot;},
+)
+data = res.json()[&quot;data&quot;]
+200 OK · example
+{
+&quot;data&quot;
+: [
+    {
+&quot;id&quot;
+: 
+&quot;vehicle.bravado-buffalo-course-46&quot;
+,
+&quot;type&quot;
+: 
+&quot;vehicle&quot;
+,
+&quot;name&quot;
+: 
+&quot;Bravado Buffalo (course #46)&quot;
+    },
+    {
+&quot;id&quot;
+: 
+&quot;vehicle.classic-roadster-36&quot;
+,
+&quot;type&quot;
+: 
+&quot;vehicle&quot;
+,
+&quot;name&quot;
+: 
+&quot;Classic roadster #36&quot;
+    },
+    {
+&quot;id&quot;
+: 
+&quot;vehicle.classic-roadster-r-badge&quot;
+,
+&quot;type&quot;
+: 
+&quot;vehicle&quot;
+,
+&quot;name&quot;
+: 
+&quot;Classic roadster (R badge)&quot;
+    }
+  ],
+&quot;links&quot;
+: {
+&quot;self&quot;
+: 
+&quot;https://vice-city.app/api/v1/vehicles?filter[class]=sport&amp;limit=3&quot;
+,
+&quot;next&quot;
+: 
+&quot;https://vice-city.app/api/v1/vehicles?filter[class]=sport&amp;limit=3&amp;cursor=Mw&quot;
+,
+&quot;next_cursor&quot;
+: 
+&quot;Mw&quot;
+  },
+&quot;meta&quot;
+: {
+&quot;api_version&quot;
+: 
+&quot;v1&quot;
+,
+&quot;data_version&quot;
+: 
+&quot;81404497d7c3&quot;
+,
+&quot;plan&quot;
+: 
+&quot;free&quot;
+,
+&quot;total&quot;
+: 
+4
+,
+&quot;docs&quot;
+: 
+&quot;https://vice-city.app/developers&quot;
+  }
+}
+Run it with the demo key
+GET
+/{collection}/{slug}
+Free
+Get one entry.
+ Returns one entry with all its fields. The 
+slug
+ is the last part of its 
+id
+.
+lang
+en | fr
+One language as plain strings. Leave it out to get both.
+fields
+list
+Top-level fields to keep, comma-separated: 
+fields=name,attributes
+.
+curl
+JavaScript
+Python
+Copy
+curl &quot;https://vice-city.app/api/v1/characters/jason-duval?lang=en&quot; \
+  -H &quot;x-api-key: YOUR_KEY&quot;
+const res = await fetch(&quot;https://vice-city.app/api/v1/characters/jason-duval?lang=en&quot;, {
+  headers: { &quot;x-api-key&quot;: &quot;YOUR_KEY&quot; },
+});
+const { data, meta } = await res.json();
+import requests
+res = requests.get(
+    &quot;https://vice-city.app/api/v1/characters/jason-duval?lang=en&quot;,
+    headers={&quot;x-api-key&quot;: &quot;YOUR_KEY&quot;},
+)
+data = res.json()[&quot;data&quot;]
+200 OK · example
+{
+&quot;data&quot;
+: {
+&quot;id&quot;
+: 
+&quot;character.jason-duval&quot;
+,
+&quot;type&quot;
+: 
+&quot;character&quot;
+,
+&quot;name&quot;
+: 
+&quot;Jason Duval&quot;
+,
+&quot;summary&quot;
+: 
+&quot;Playable protagonist. Former soldier now working for smugglers in the Keys; Brian's employee and tenant in Key Lento.&quot;
+,
+&quot;attributes&quot;
+: {
+&quot;alias&quot;
+: 
+null
+,
+&quot;group&quot;
+: 
+&quot;Protagonists&quot;
+,
+&quot;appearances&quot;
+: 
+&quot;Trailer 2, Extended Look, launch trailer, cover art, Rockstar bio&quot;
+,
+&quot;voice&quot;
+: 
+null
+    },
+&quot;reliability&quot;
+: 
+&quot;official&quot;
+,
+&quot;verified_in_game&quot;
+: 
+false
+,
+&quot;sources&quot;
+: [
+      {
+&quot;url&quot;
+: 
+&quot;https://www.rockstargames.com/VI&quot;
+,
+&quot;site&quot;
+: 
+&quot;rockstargames.com&quot;
+      }
+    ],
+&quot;url&quot;
+: 
+&quot;https://vice-city.app/characters/jason-duval&quot;
+,
+&quot;updated_at&quot;
+: 
+&quot;2026-11-16&quot;
+  },
+&quot;meta&quot;
+: {
+&quot;api_version&quot;
+: 
+&quot;v1&quot;
+,
+&quot;data_version&quot;
+: 
+&quot;81404497d7c3&quot;
+,
+&quot;plan&quot;
+: 
+&quot;free&quot;
+,
+&quot;docs&quot;
+: 
+&quot;https://vice-city.app/developers&quot;
+  }
+}
+Run it with the demo key
+GET
+/{collection}/{slug}/related
+Free
+Get linked entries.
+ Returns the entries this one points to and the ones that point to it. For a region: its districts and businesses.
+lang
+en | fr
+One language as plain strings. Leave it out to get both.
+limit
+1–25 · 1–200
+How many entries to return.
+fields
+list
+Top-level fields to keep, comma-separated: 
+fields=name,attributes
+.
+curl
+JavaScript
+Python
+Copy
+curl &quot;https://vice-city.app/api/v1/locations/vice-city/related?fields=name&amp;limit=3&amp;lang=en&quot; \
+  -H &quot;x-api-key: YOUR_KEY&quot;
+const res = await fetch(&quot;https://vice-city.app/api/v1/locations/vice-city/related?fields=name&amp;limit=3&amp;lang=en&quot;, {
+  headers: { &quot;x-api-key&quot;: &quot;YOUR_KEY&quot; },
+});
+const { data, meta } = await res.json();
+import requests
+res = requests.get(
+    &quot;https://vice-city.app/api/v1/locations/vice-city/related?fields=name&amp;limit=3&amp;lang=en&quot;,
+    headers={&quot;x-api-key&quot;: &quot;YOUR_KEY&quot;},
+)
+data = res.json()[&quot;data&quot;]
+200 OK · example
+{
+&quot;data&quot;
+: [
+    {
+&quot;id&quot;
+: 
+&quot;location.ocean-beach&quot;
+,
+&quot;type&quot;
+: 
+&quot;location&quot;
+,
+&quot;name&quot;
+: 
+&quot;Ocean Beach&quot;
+    },
+    {
+&quot;id&quot;
+: 
+&quot;location.washington-beach&quot;
+,
+&quot;type&quot;
+: 
+&quot;location&quot;
+,
+&quot;name&quot;
+: 
+&quot;Washington Beach&quot;
+    },
+    {
+&quot;id&quot;
+: 
+&quot;location.vice-beach&quot;
+,
+&quot;type&quot;
+: 
+&quot;location&quot;
+,
+&quot;name&quot;
+: 
+&quot;Vice Beach&quot;
+    }
+  ],
+&quot;meta&quot;
+: {
+&quot;api_version&quot;
+: 
+&quot;v1&quot;
+,
+&quot;data_version&quot;
+: 
+&quot;81404497d7c3&quot;
+,
+&quot;plan&quot;
+: 
+&quot;free&quot;
+,
+&quot;total&quot;
+: 
+81
+,
+&quot;docs&quot;
+: 
+&quot;https://vice-city.app/developers&quot;
+  }
+}
+Run it with the demo key
+GET
+/search
+Free
+Search everything.
+ Searches every collection at once, in English and French, ignoring accents. Names first, then summaries and attributes.
+q
+string, required
+At least 2 characters.
+lang
+en | fr
+One language as plain strings. Leave it out to get both.
+limit
+1–25 · 1–200
+How many results to return.
+fields
+list
+Top-level fields to keep, comma-separated: 
+fields=name,attributes
+.
+curl
+JavaScript
+Python
+Copy
+curl &quot;https://vice-city.app/api/v1/search?q=cheetah&amp;fields=name&amp;lang=en&quot; \
+  -H &quot;x-api-key: YOUR_KEY&quot;
+const res = await fetch(&quot;https://vice-city.app/api/v1/search?q=cheetah&amp;fields=name&amp;lang=en&quot;, {
+  headers: { &quot;x-api-key&quot;: &quot;YOUR_KEY&quot; },
+});
+const { data, meta } = await res.json();
+import requests
+res = requests.get(
+    &quot;https://vice-city.app/api/v1/search?q=cheetah&amp;fields=name&amp;lang=en&quot;,
+    headers={&quot;x-api-key&quot;: &quot;YOUR_KEY&quot;},
+)
+data = res.json()[&quot;data&quot;]
+200 OK · example
+{
+&quot;data&quot;
+: [
+    {
+&quot;id&quot;
+: 
+&quot;vehicle.grotti-95-cheetah&quot;
+,
+&quot;type&quot;
+: 
+&quot;vehicle&quot;
+,
+&quot;name&quot;
+: 
+&quot;Grotti '95 Cheetah&quot;
+    },
+    {
+&quot;id&quot;
+: 
+&quot;vehicle.grotti-cheetah-classic&quot;
+,
+&quot;type&quot;
+: 
+&quot;vehicle&quot;
+,
+&quot;name&quot;
+: 
+&quot;Grotti Cheetah Classic&quot;
+    }
+  ],
+&quot;meta&quot;
+: {
+&quot;api_version&quot;
+: 
+&quot;v1&quot;
+,
+&quot;data_version&quot;
+: 
+&quot;81404497d7c3&quot;
+,
+&quot;plan&quot;
+: 
+&quot;free&quot;
+,
+&quot;total&quot;
+: 
+2
+,
+&quot;docs&quot;
+: 
+&quot;https://vice-city.app/developers&quot;
+  }
+}
+Run it with the demo key
+Discovery
+GET
+/types
+Free
+List collections and their fields.
+ Returns every collection with its entry count and the attributes of its type. Read it at startup and your code picks up new collections (missions, collectibles…) on its own.
+lang
+en | fr
+One language as plain strings. Leave it out to get both.
+The example shows one collection out of 15.
+curl
+JavaScript
+Python
+Copy
+curl &quot;https://vice-city.app/api/v1/types?lang=en&quot; \
+  -H &quot;x-api-key: YOUR_KEY&quot;
+const res = await fetch(&quot;https://vice-city.app/api/v1/types?lang=en&quot;, {
+  headers: { &quot;x-api-key&quot;: &quot;YOUR_KEY&quot; },
+});
+const { data, meta } = await res.json();
+import requests
+res = requests.get(
+    &quot;https://vice-city.app/api/v1/types?lang=en&quot;,
+    headers={&quot;x-api-key&quot;: &quot;YOUR_KEY&quot;},
+)
+data = res.json()[&quot;data&quot;]
+200 OK · example
+{
+&quot;data&quot;
+: [
+    {
+&quot;name&quot;
+: 
+&quot;weapons&quot;
+,
+&quot;type&quot;
+: 
+&quot;weapon&quot;
+,
+&quot;title&quot;
+: 
+&quot;Weapons&quot;
+,
+&quot;count&quot;
+: 
+37
+,
+&quot;attributes&quot;
+: {
+&quot;category&quot;
+: {
+&quot;type&quot;
+: 
+&quot;text&quot;
+        },
+&quot;real_model&quot;
+: {
+&quot;type&quot;
+: 
+&quot;text&quot;
+        },
+&quot;seen_in&quot;
+: {
+&quot;type&quot;
+: 
+&quot;text&quot;
+        }
+      },
+&quot;href&quot;
+: 
+&quot;https://vice-city.app/api/v1/weapons&quot;
+    }
+  ],
+&quot;meta&quot;
+: {
+&quot;api_version&quot;
+: 
+&quot;v1&quot;
+,
+&quot;data_version&quot;
+: 
+&quot;81404497d7c3&quot;
+,
+&quot;plan&quot;
+: 
+&quot;free&quot;
+,
+&quot;docs&quot;
+: 
+&quot;https://vice-city.app/developers&quot;
+  }
+}
+Run it with the demo key
+GET
+/game
+Free
+Get the game facts.
+ Release date, platforms, developer and publisher.
+lang
+en | fr
+One language as plain strings. Leave it out to get both.
+curl
+JavaScript
+Python
+Copy
+curl &quot;https://vice-city.app/api/v1/game?lang=en&quot; \
+  -H &quot;x-api-key: YOUR_KEY&quot;
+const res = await fetch(&quot;https://vice-city.app/api/v1/game?lang=en&quot;, {
+  headers: { &quot;x-api-key&quot;: &quot;YOUR_KEY&quot; },
+});
+const { data, meta } = await res.json();
+import requests
+res = requests.get(
+    &quot;https://vice-city.app/api/v1/game?lang=en&quot;,
+    headers={&quot;x-api-key&quot;: &quot;YOUR_KEY&quot;},
+)
+data = res.json()[&quot;data&quot;]
+200 OK · example
+{
+&quot;data&quot;
+: {
+&quot;title&quot;
+: 
+&quot;Grand Theft Auto VI&quot;
+,
+&quot;developer&quot;
+: 
+&quot;Rockstar Games&quot;
+,
+&quot;publisher&quot;
+: 
+&quot;Take-Two Interactive&quot;
+,
+&quot;release_date&quot;
+: 
+&quot;2026-11-19&quot;
+,
+&quot;platforms&quot;
+: [
+&quot;PlayStation 5&quot;
+,
+&quot;Xbox Series X|S&quot;
+    ],
+&quot;setting&quot;
+: 
+&quot;The state of Leonida, home of Vice City&quot;
+,
+&quot;official_site&quot;
+: 
+&quot;https://www.rockstargames.com/VI&quot;
+  },
+&quot;meta&quot;
+: {
+&quot;api_version&quot;
+: 
+&quot;v1&quot;
+,
+&quot;data_version&quot;
+: 
+&quot;81404497d7c3&quot;
+,
+&quot;plan&quot;
+: 
+&quot;free&quot;
+,
+&quot;docs&quot;
+: 
+&quot;https://vice-city.app/developers&quot;
+  }
+}
+Run it with the demo key
+Developer plan
+GET
+/map/{layer}
+Developer
+Get a map layer.
+ GeoJSON for the map of Leonida. 
+districts
+ has 109 outlines, 
+landmarks
+ has 3,659 points with tags and their real-world counterpart.
+layer
+districts | landmarks
+In the path.
+bbox
+minX,minY,maxX,maxY
+Only features touching this box, in game units.
+tag
+string
+Landmarks only: 
+tag=hotel
+.
+Coordinates are in-game units (x east, y north), not latitude and longitude. This layer comes from the gtadb.org community project (CC BY 4.0): it is not confirmed by Rockstar.
+curl
+JavaScript
+Python
+Copy
+curl &quot;https://vice-city.app/api/v1/map/districts?bbox=0,0,2000,3000&quot; \
+  -H &quot;x-api-key: YOUR_KEY&quot;
+const res = await fetch(&quot;https://vice-city.app/api/v1/map/districts?bbox=0,0,2000,3000&quot;, {
+  headers: { &quot;x-api-key&quot;: &quot;YOUR_KEY&quot; },
+});
+const { data, meta } = await res.json();
+import requests
+res = requests.get(
+    &quot;https://vice-city.app/api/v1/map/districts?bbox=0,0,2000,3000&quot;,
+    headers={&quot;x-api-key&quot;: &quot;YOUR_KEY&quot;},
+)
+data = res.json()[&quot;data&quot;]
+200 OK · example
+{
+&quot;type&quot;
+: 
+&quot;FeatureCollection&quot;
+,
+&quot;crs&quot;
+: 
+&quot;gta6-world (game units, x east, y north)&quot;
+,
+&quot;features&quot;
+: [
+    {
+&quot;type&quot;
+: 
+&quot;Feature&quot;
+,
+&quot;id&quot;
+: 
+&quot;district.ky01&quot;
+,
+&quot;bbox&quot;
+: [
+-9707.6
+,
+955.6
+,
+-6684.4
+,
+4479.8
+      ],
+&quot;properties&quot;
+: {
+&quot;code&quot;
+: 
+&quot;KY01&quot;
+,
+&quot;name&quot;
+: 
+&quot;Sandbars &amp; Crude Islands&quot;
+,
+&quot;county&quot;
+: 
+&quot;Kelly County&quot;
+,
+&quot;reliability&quot;
+: 
+&quot;community&quot;
+      },
+&quot;geometry&quot;
+: {
+&quot;type&quot;
+: 
+&quot;Polygon&quot;
+,
+&quot;coordinates&quot;
+: [
+          [
+            [
+-7299.5
+,
+955.6
+            ],
+            [
+-7297.2
+,
+980.4
+            ],
+            [
+-7296.7
+,
+1005.2
+            ],
+&quot;…&quot;
+          ]
+        ]
+      }
+    }
+  ],
+&quot;meta&quot;
+: {
+&quot;api_version&quot;
+: 
+&quot;v1&quot;
+,
+&quot;data_version&quot;
+: 
+&quot;81404497d7c3&quot;
+,
+&quot;plan&quot;
+: 
+&quot;developer&quot;
+,
+&quot;total&quot;
+: 
+109
+,
+&quot;docs&quot;
+: 
+&quot;https://vice-city.app/developers&quot;
+  }
+}
+GET
+/changes
+Developer
+Get what changed.
+ Entries created, edited or removed since a date. Call it once a day to keep a local copy in sync without downloading everything again.
+since
+date, required
+YYYY-MM-DD
+lang
+en | fr
+One language as plain strings. Leave it out to get both.
+fields
+list
+Top-level fields to keep, comma-separated: 
+fields=name,attributes
+.
+curl
+JavaScript
+Python
+Copy
+curl &quot;https://vice-city.app/api/v1/changes?since=2026-11-19&amp;fields=name&amp;lang=en&quot; \
+  -H &quot;x-api-key: YOUR_KEY&quot;
+const res = await fetch(&quot;https://vice-city.app/api/v1/changes?since=2026-11-19&amp;fields=name&amp;lang=en&quot;, {
+  headers: { &quot;x-api-key&quot;: &quot;YOUR_KEY&quot; },
+});
+const { data, meta } = await res.json();
+import requests
+res = requests.get(
+    &quot;https://vice-city.app/api/v1/changes?since=2026-11-19&amp;fields=name&amp;lang=en&quot;,
+    headers={&quot;x-api-key&quot;: &quot;YOUR_KEY&quot;},
+)
+data = res.json()[&quot;data&quot;]
+200 OK · example
+{
+&quot;data&quot;
+: {
+&quot;created&quot;
+: [
+      {
+&quot;id&quot;
+: 
+&quot;character.jason-duval&quot;
+,
+&quot;type&quot;
+: 
+&quot;character&quot;
+,
+&quot;name&quot;
+: 
+&quot;Jason Duval&quot;
+      }
+    ],
+&quot;updated&quot;
+: [],
+&quot;removed&quot;
+: []
+  },
+&quot;meta&quot;
+: {
+&quot;api_version&quot;
+: 
+&quot;v1&quot;
+,
+&quot;data_version&quot;
+: 
+&quot;81404497d7c3&quot;
+,
+&quot;plan&quot;
+: 
+&quot;developer&quot;
+,
+&quot;since&quot;
+: 
+&quot;2026-11-19&quot;
+,
+&quot;total&quot;
+: 
+1
+,
+&quot;docs&quot;
+: 
+&quot;https://vice-city.app/developers&quot;
+  }
+}
+GET
+/export/{collection}
+Developer
+Export a collection.
+ The whole collection in one call, as NDJSON: one JSON entry per line, easy to stream into a database.
+lang
+en | fr
+One language as plain strings. Leave it out to get both.
+The response is 
+application/x-ndjson
+. The example shows one line, pretty-printed.
+curl
+JavaScript
+Python
+Copy
+curl &quot;https://vice-city.app/api/v1/export/vehicles?lang=en&quot; \
+  -H &quot;x-api-key: YOUR_KEY&quot;
+const res = await fetch(&quot;https://vice-city.app/api/v1/export/vehicles?lang=en&quot;, {
+  headers: { &quot;x-api-key&quot;: &quot;YOUR_KEY&quot; },
+});
+const { data, meta } = await res.json();
+import requests
+res = requests.get(
+    &quot;https://vice-city.app/api/v1/export/vehicles?lang=en&quot;,
+    headers={&quot;x-api-key&quot;: &quot;YOUR_KEY&quot;},
+)
+data = res.json()[&quot;data&quot;]
+200 OK · example
+{
+&quot;id&quot;
+: 
+&quot;vehicle.grotti-95-cheetah&quot;
+,
+&quot;type&quot;
+: 
+&quot;vehicle&quot;
+,
+&quot;name&quot;
+: 
+&quot;Grotti '95 Cheetah&quot;
+,
+&quot;attributes&quot;
+: {
+&quot;manufacturer&quot;
+: 
+&quot;Grotti&quot;
+,
+&quot;model&quot;
+: 
+&quot;'95 Cheetah&quot;
+,
+&quot;class&quot;
+: 
+&quot;Sports&quot;
+,
+&quot;inspiration&quot;
+: 
+&quot;Ferrari&quot;
+,
+&quot;seen_in&quot;
+: 
+&quot;Ultimate Edition&quot;
+  },
+&quot;reliability&quot;
+: 
+&quot;official&quot;
+}
+Advertisement
+Cach
+ing
+The data only changes when we publish an update, so cache it. Every answer has an 
+ETag
+: send it back in 
+If-None-Match
+ and you get an empty 
+304
+ when nothing changed. 
+meta.data_version
+ changes with every update of the dataset.
+curl
+Copy
+curl &quot;https://vice-city.app/api/v1/weapons&quot; \
+  -H &quot;x-api-key: YOUR_KEY&quot; \
+  -H &#x27;If-None-Match: &quot;ArBkgtbVqGOZaazeWq6yboZlsDE&quot;&#x27;
+A 304 still counts as a request. Check 
+data_version
+ with 
+/game
+, the lightest call, before refreshing a whole copy.
+Err
+ors
+Errors follow RFC 9457 (
+application/problem+json
+). Branch on 
+code
+, which never changes, and show 
+detail
+, which says what to do. Give us 
+instance
+ if you write about a problem.
+429 Too Many Requests
+{
+&quot;type&quot;
+: 
+&quot;https://vice-city.app/developers#errors&quot;
+,
+&quot;title&quot;
+: 
+&quot;Daily limit reached&quot;
+,
+&quot;status&quot;
+: 
+429
+,
+&quot;detail&quot;
+: 
+&quot;This key allows 5 requests a day on this API. The counter resets at 00:00 UTC.&quot;
+,
+&quot;code&quot;
+: 
+&quot;rate_limited&quot;
+,
+&quot;instance&quot;
+: 
+&quot;cdg1::abcde-1794845763624&quot;
+}
+400
+invalid_query
+invalid_sort
+invalid_cursor
+invalid_bbox
+invalid_since
+invalid_lang
+A parameter is wrong. 
+detail
+ says which one and gives a valid example.
+401
+missing_api_key
+invalid_api_key
+No key, or a key we don’t know.
+403
+plan_upgrade_required
+A Developer endpoint called with a Free key.
+403
+subscription_inactive
+demo_key
+The subscription behind the key has ended, or the demo key was asked for a second page.
+404
+unknown_collection
+not_found
+unknown_layer
+Nothing at this address.
+429
+rate_limited
+Daily limit reached. 
+Retry-After
+ gives the seconds until 00:00 UTC.
+503
+keys_unavailable
+Keys can’t be checked right now. Retry in a minute.
+Terms of 
+use
+With a Free key, the use stays non-commercial and shows a visible “Data: vice-city.app” credit with a link.
+A Developer key allows commercial use. The credit is appreciated, not required.
+Map data must also credit gtadb.org (CC BY 4.0).
+Don’t resell or republish the exports as they are.
+The API serves no image and no leaked content.
+vice-city.app is not affiliated with, endorsed by or sponsored by Rockstar Games or Take-Two Interactive. A question or a bug: 
+contact@lucasbonomi.com
+.
+Advertisement
+Everything in Excess
+★
+Gateway to Paradise
+★
+Live Hard
+★
+Wild, Wild Country
+★
+Only in Leonida
+★
+Everything in Excess
+★
+Gateway to Paradise
+★
+Live Hard
+★
+Wild, Wild Country
+★
+Only in Leonida
+★
+Everything in Excess
+★
+Gateway to Paradise
+★
+Live Hard
+★
+Wild, Wild Country
+★
+Only in Leonida
+★
+Everything in Excess
+★
+Gateway to Paradise
+★
+Live Hard
+★
+Wild, Wild Country
+★
+Only in Leonida
+★
+Discord
+The Vice City community: map finds, secrets, radio and GTA 6 news with other players.
+Join the Discord
+@ViceCityApp
+vice-city.app
+The unofficial GTA 6 companion.
+Updated daily until launch, live from November 19.
+Database
+Map
+Characters
+Locations
+Vehicles
+Weapons
+Activities
+Radio
+Gallery
+Launch guide
+Release date
+Editions
+Trailers
+Cheats
+Missions
+100% checklist
+Trophies
+Secrets
+News
+Site
+Home
+About
+Editorial policy
+GTA 6 API
+Privacy
+Contact
+Discord
+X (Twitter)
+Cookie settings
+Language
+English
+Français
+vice-city.app is an unofficial fan site. It is not affiliated with, endorsed by or sponsored by Rockstar Games or Take-Two Interactive. Grand Theft Auto and all related names, logos and images are trademarks and © of their respective owners. Official images © Rockstar Games, used for illustration and commentary.
+vice-city.app
+Esc
+Type to search the whole database
+Quick actions
+Light
+Dark
+System
+Animations
+Web radio
+Picked at random
+⚄
+Press / anywhere to search.
+↑
+↓
+Navigate
+↵
+Open
+Tab
+Category
+Esc
+Close
+‹
+›
+© Rockstar Games
+×
+We use Google Analytics to count visits and improve the site. OK with you? 
+Privacy
+Decline
+Accept
+×

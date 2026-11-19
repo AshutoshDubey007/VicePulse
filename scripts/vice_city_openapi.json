@@ -1,0 +1,1264 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "vice-city.app API",
+    "version": "1.0.0",
+    "summary": "GTA 6 data as JSON, in English and French.",
+    "description": "Characters, locations, businesses, vehicles, weapons, activities, radio stations, trailers and editions of Grand Theft Auto VI, plus the community map of Leonida as GeoJSON.\n\nEvery entity has the same shape (`id`, `type`, `name`, `summary`, `attributes`, `relations`, `reliability`, `sources`), so new content types (missions, collectibles, trophies) appear as new collections without breaking clients: read `/types`.\n\nUnofficial fan project, not affiliated with Rockstar Games or Take-Two Interactive. Leaks and rumours are never included.",
+    "contact": {
+      "name": "vice-city.app",
+      "url": "https://vice-city.app/developers",
+      "email": "contact@lucasbonomi.com"
+    },
+    "termsOfService": "https://vice-city.app/developers#terms"
+  },
+  "servers": [
+    {
+      "url": "https://vice-city.app/api/v1"
+    }
+  ],
+  "security": [
+    {
+      "apiKey": []
+    },
+    {
+      "bearer": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Catalogue",
+      "description": "Free and Developer keys."
+    },
+    {
+      "name": "Map",
+      "description": "Developer keys."
+    },
+    {
+      "name": "Sync",
+      "description": "Developer keys."
+    },
+    {
+      "name": "Meta"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Meta"
+        ],
+        "summary": "API index",
+        "security": [],
+        "operationId": "getIndex",
+        "responses": {
+          "200": {
+            "description": "Links, plans and data version.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/types": {
+      "get": {
+        "tags": [
+          "Meta"
+        ],
+        "summary": "Collections and the attributes of each type",
+        "operationId": "listTypes",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "RateLimit-Limit": {
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "RateLimit-Remaining": {
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Collection"
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "401": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "403": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "404": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "429": {
+            "$ref": "#/components/responses/Problem"
+          }
+        }
+      }
+    },
+    "/game": {
+      "get": {
+        "tags": [
+          "Meta"
+        ],
+        "summary": "Release date, platforms and publisher",
+        "operationId": "getGame",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/lang"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "RateLimit-Limit": {
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "RateLimit-Remaining": {
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "401": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "403": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "404": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "429": {
+            "$ref": "#/components/responses/Problem"
+          }
+        }
+      }
+    },
+    "/{collection}": {
+      "get": {
+        "tags": [
+          "Catalogue"
+        ],
+        "summary": "List the entities of a collection",
+        "operationId": "listEntities",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/collection"
+          },
+          {
+            "$ref": "#/components/parameters/lang"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/cursor"
+          },
+          {
+            "$ref": "#/components/parameters/q"
+          },
+          {
+            "$ref": "#/components/parameters/sort"
+          },
+          {
+            "$ref": "#/components/parameters/fields"
+          },
+          {
+            "$ref": "#/components/parameters/filter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "RateLimit-Limit": {
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "RateLimit-Remaining": {
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "401": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "403": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "404": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "429": {
+            "$ref": "#/components/responses/Problem"
+          }
+        }
+      }
+    },
+    "/{collection}/{slug}": {
+      "get": {
+        "tags": [
+          "Catalogue"
+        ],
+        "summary": "One entity",
+        "operationId": "getEntity",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/collection"
+          },
+          {
+            "$ref": "#/components/parameters/slug"
+          },
+          {
+            "$ref": "#/components/parameters/lang"
+          },
+          {
+            "$ref": "#/components/parameters/fields"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "RateLimit-Limit": {
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "RateLimit-Remaining": {
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Entity"
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "401": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "403": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "404": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "429": {
+            "$ref": "#/components/responses/Problem"
+          }
+        }
+      }
+    },
+    "/{collection}/{slug}/related": {
+      "get": {
+        "tags": [
+          "Catalogue"
+        ],
+        "summary": "Entities linked to this one, in both directions",
+        "operationId": "listRelated",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/collection"
+          },
+          {
+            "$ref": "#/components/parameters/slug"
+          },
+          {
+            "$ref": "#/components/parameters/lang"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "RateLimit-Limit": {
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "RateLimit-Remaining": {
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "401": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "403": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "404": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "429": {
+            "$ref": "#/components/responses/Problem"
+          }
+        }
+      }
+    },
+    "/search": {
+      "get": {
+        "tags": [
+          "Catalogue"
+        ],
+        "summary": "Search every collection, in English and French",
+        "operationId": "search",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 2
+            }
+          },
+          {
+            "$ref": "#/components/parameters/lang"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "RateLimit-Limit": {
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "RateLimit-Remaining": {
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "401": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "403": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "404": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "429": {
+            "$ref": "#/components/responses/Problem"
+          }
+        }
+      }
+    },
+    "/map/{layer}": {
+      "get": {
+        "tags": [
+          "Map"
+        ],
+        "summary": "Map layer as GeoJSON, in game units",
+        "operationId": "getMapLayer",
+        "description": "Coordinates are in-game units (x east, y north), not latitude and longitude. Community data from gtadb.org, to be checked in game after launch.",
+        "parameters": [
+          {
+            "name": "layer",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "enum": [
+                "districts",
+                "landmarks"
+              ]
+            }
+          },
+          {
+            "name": "bbox",
+            "in": "query",
+            "description": "minX,minY,maxX,maxY",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tag",
+            "in": "query",
+            "description": "Landmarks only, for example hotel.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "RateLimit-Limit": {
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "RateLimit-Remaining": {
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "GeoJSON FeatureCollection"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "401": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "403": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "404": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "429": {
+            "$ref": "#/components/responses/Problem"
+          }
+        }
+      }
+    },
+    "/changes": {
+      "get": {
+        "tags": [
+          "Sync"
+        ],
+        "summary": "Entities added, updated or removed since a date",
+        "operationId": "listChanges",
+        "parameters": [
+          {
+            "name": "since",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/lang"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "RateLimit-Limit": {
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "RateLimit-Remaining": {
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "401": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "403": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "404": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "429": {
+            "$ref": "#/components/responses/Problem"
+          }
+        }
+      }
+    },
+    "/export/{collection}": {
+      "get": {
+        "tags": [
+          "Sync"
+        ],
+        "summary": "Full collection as NDJSON, one entity per line",
+        "operationId": "exportCollection",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/collection"
+          },
+          {
+            "$ref": "#/components/parameters/lang"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/x-ndjson": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "401": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "403": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "404": {
+            "$ref": "#/components/responses/Problem"
+          },
+          "429": {
+            "$ref": "#/components/responses/Problem"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "apiKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key",
+        "description": "Your MadamNazar.io developer key (`mn_live_…`), or `vc_demo` to try the API."
+      },
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    },
+    "parameters": {
+      "collection": {
+        "name": "collection",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "enum": [
+            "locations",
+            "businesses",
+            "characters",
+            "manufacturers",
+            "vehicles",
+            "weapons",
+            "activities",
+            "radio-stations",
+            "trailers",
+            "editions",
+            "events",
+            "missions",
+            "collectibles",
+            "trophies",
+            "cheats"
+          ]
+        }
+      },
+      "slug": {
+        "name": "slug",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "example": "jason-duval"
+      },
+      "lang": {
+        "name": "lang",
+        "in": "query",
+        "description": "Return plain strings in one language instead of `{en, fr}` objects.",
+        "schema": {
+          "enum": [
+            "en",
+            "fr"
+          ]
+        }
+      },
+      "limit": {
+        "name": "limit",
+        "in": "query",
+        "description": "Page size. Up to 25 with a free key (5 requests a day), 200 with a Developer key.",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 200,
+          "default": 25
+        }
+      },
+      "cursor": {
+        "name": "cursor",
+        "in": "query",
+        "description": "Value of `links.next_cursor` from the previous page.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "q": {
+        "name": "q",
+        "in": "query",
+        "description": "Keep entities whose name or summary contains this text.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "sort": {
+        "name": "sort",
+        "in": "query",
+        "description": "`name`, `updated_at` or `created_at`; prefix with `-` for descending.",
+        "schema": {
+          "type": "string",
+          "default": "name"
+        }
+      },
+      "fields": {
+        "name": "fields",
+        "in": "query",
+        "description": "Comma-separated top-level fields to keep, for example `name,attributes`.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "filter": {
+        "name": "filter",
+        "in": "query",
+        "style": "deepObject",
+        "explode": true,
+        "description": "`filter[reliability]=official`, `filter[class]=sport`, `filter[region]=vice-city`. Matches a top-level field, an attribute (either language) or a relation.",
+        "schema": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "responses": {
+      "Problem": {
+        "description": "Error, as RFC 9457 problem details",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Problem"
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "Text": {
+        "description": "Translated text. A plain string when `lang` is set.",
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "en": {
+                "type": "string"
+              },
+              "fr": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "en",
+              "fr"
+            ]
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "Entity": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "slug",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Stable, `type.slug`. Never reused.",
+            "example": "character.jason-duval"
+          },
+          "type": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "name": {
+            "$ref": "#/components/schemas/Text"
+          },
+          "summary": {
+            "$ref": "#/components/schemas/Text"
+          },
+          "attributes": {
+            "type": "object",
+            "description": "Fields specific to the type, described by `/types`.",
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LocationAttributes"
+              },
+              {
+                "$ref": "#/components/schemas/BusinessAttributes"
+              },
+              {
+                "$ref": "#/components/schemas/CharacterAttributes"
+              },
+              {
+                "$ref": "#/components/schemas/ManufacturerAttributes"
+              },
+              {
+                "$ref": "#/components/schemas/VehicleAttributes"
+              },
+              {
+                "$ref": "#/components/schemas/WeaponAttributes"
+              },
+              {
+                "$ref": "#/components/schemas/ActivityAttributes"
+              },
+              {
+                "$ref": "#/components/schemas/RadioStationAttributes"
+              },
+              {
+                "$ref": "#/components/schemas/TrailerAttributes"
+              },
+              {
+                "$ref": "#/components/schemas/EditionAttributes"
+              },
+              {
+                "$ref": "#/components/schemas/EventAttributes"
+              },
+              {
+                "type": "object"
+              }
+            ]
+          },
+          "relations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "rel": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "$ref": "#/components/schemas/Text"
+                },
+                "href": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              }
+            }
+          },
+          "reliability": {
+            "enum": [
+              "official",
+              "press",
+              "community",
+              "in_game"
+            ]
+          },
+          "spoiler": {
+            "type": "boolean"
+          },
+          "verified_in_game": {
+            "type": "boolean"
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "site": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "license": {
+            "type": "string"
+          },
+          "url": {
+            "description": "Page of this entity on vice-city.app.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Text"
+              }
+            ]
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      },
+      "EntityList": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Entity"
+            }
+          },
+          "links": {
+            "type": "object",
+            "properties": {
+              "self": {
+                "type": "string"
+              },
+              "next": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "next_cursor": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        }
+      },
+      "Collection": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "title": {
+            "$ref": "#/components/schemas/Text"
+          },
+          "description": {
+            "$ref": "#/components/schemas/Text"
+          },
+          "count": {
+            "type": "integer"
+          },
+          "attributes": {
+            "type": "object"
+          },
+          "href": {
+            "type": "string"
+          }
+        }
+      },
+      "Meta": {
+        "type": "object",
+        "properties": {
+          "api_version": {
+            "type": "string"
+          },
+          "data_version": {
+            "type": "string"
+          },
+          "total": {
+            "type": "integer"
+          },
+          "plan": {
+            "enum": [
+              "demo",
+              "free",
+              "developer"
+            ]
+          },
+          "attribution": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "docs": {
+            "type": "string"
+          }
+        }
+      },
+      "Problem": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          }
+        }
+      },
+      "LocationAttributes": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "enum": [
+              "region",
+              "district"
+            ]
+          },
+          "slogan": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "inspiration": {
+            "$ref": "#/components/schemas/Text"
+          }
+        }
+      },
+      "BusinessAttributes": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "$ref": "#/components/schemas/Text"
+          },
+          "area": {
+            "$ref": "#/components/schemas/Text"
+          },
+          "inspiration": {
+            "$ref": "#/components/schemas/Text"
+          }
+        }
+      },
+      "CharacterAttributes": {
+        "type": "object",
+        "properties": {
+          "alias": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "group": {
+            "$ref": "#/components/schemas/Text"
+          },
+          "appearances": {
+            "$ref": "#/components/schemas/Text"
+          },
+          "voice": {
+            "$ref": "#/components/schemas/Text"
+          }
+        }
+      },
+      "ManufacturerAttributes": {
+        "type": "object",
+        "properties": {
+          "real_equivalent": {
+            "$ref": "#/components/schemas/Text"
+          },
+          "seen_in_gta6": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          }
+        }
+      },
+      "VehicleAttributes": {
+        "type": "object",
+        "properties": {
+          "manufacturer": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "model": {
+            "$ref": "#/components/schemas/Text"
+          },
+          "class": {
+            "$ref": "#/components/schemas/Text"
+          },
+          "inspiration": {
+            "$ref": "#/components/schemas/Text"
+          },
+          "seen_in": {
+            "$ref": "#/components/schemas/Text"
+          }
+        }
+      },
+      "WeaponAttributes": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "$ref": "#/components/schemas/Text"
+          },
+          "real_model": {
+            "$ref": "#/components/schemas/Text"
+          },
+          "seen_in": {
+            "$ref": "#/components/schemas/Text"
+          }
+        }
+      },
+      "ActivityAttributes": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "$ref": "#/components/schemas/Text"
+          }
+        }
+      },
+      "RadioStationAttributes": {
+        "type": "object",
+        "properties": {
+          "genre": {
+            "$ref": "#/components/schemas/Text"
+          },
+          "hosts": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "hosts_real_identity": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "tracks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "TrailerAttributes": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "youtube": {
+            "type": "string",
+            "format": "uri"
+          },
+          "music": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      },
+      "EditionAttributes": {
+        "type": "object",
+        "properties": {
+          "price_usd": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "includes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Text"
+            }
+          }
+        }
+      },
+      "EventAttributes": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "YYYY, YYYY-MM or YYYY-MM-DD"
+          }
+        }
+      }
+    }
+  }
+}
